@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=#, initial-scale=1.0">
+    <link rel="stylesheet" href="login_style.css">
     <title>Login</title>
 </head>
 <body>
-    <h1>WELCOME</h1>
-    <div>
-        <h3>Log in</h3>
+    <div id="center">
         <div>
-            <input type="text" name="username" id="username" placeholder="Username">
-        </div>
-        <div>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <div>
+            <h1>Log In</h1>
+            <p>Don't have an account? <a href="register.html">Register now!</a></p>
+            </div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+
+                <input type="submit" value="Log In">
         </div>
     </div>
 </body>
