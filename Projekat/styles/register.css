@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    justify-content: center;
+    align-items: center; 
+    background-color: #ffcde8;
+    color: darkmagenta;
+}
+
+.registration {
+    display: grid;
+}
+
+img {
+    width: 300px;
+}
