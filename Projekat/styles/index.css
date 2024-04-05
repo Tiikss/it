@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body {
+    font-family: sans-serif;
+    color: #703452;
+}
+
 nav {
     padding-left: 5%;
     padding-right: 5%;
@@ -36,4 +41,54 @@ nav ul li {
 nav a {
     color: white;
     text-decoration: none;
+}
+
+.motivation {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.motivation img {
+    width: 500px;
+}
+
+#motivation-txt {
+    display: grid;
+    padding-right: 20px;
+}
+
+#motivation-txt h1 {
+    padding-bottom: 20px;
+    background: -webkit-linear-gradient(#703452, #ffcde8);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#motivation-txt h2 {
+    padding-bottom: 10px;
+}
+
+#motivation-txt h3 {
+    padding-bottom: 5px;
+}
+
+#motivation-txt p {
+    text-align: justify;
+}
+
+footer {
+    padding: 16px 5%;
+    border-top: 1px solid #703452;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
 }
