@@ -69,3 +69,18 @@ input {
 #login-div {
     padding-right: 40px;
 }
+
+#login-div img {
+    width: 100px;
+}
+
+#logo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#image {
+    display: flex;
+    justify-content: center;
+}
