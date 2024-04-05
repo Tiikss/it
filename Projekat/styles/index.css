@@ -78,6 +78,49 @@ nav a {
     text-align: justify;
 }
 
+#course-div {
+    display: grid;
+}
+
+.course {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.course-lvl {
+    display: grid;
+    border: 1px solid #ffcde8;
+    border-radius: 10px;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: 12px;
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    background-color: #ffcde8;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.course-lvl img {
+    width: 100px;
+    padding-bottom: 20px;
+}
+
+#course-div {
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#course-div h2 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
 footer {
     padding: 16px 5%;
     border-top: 1px solid #703452;
