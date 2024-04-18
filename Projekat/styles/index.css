@@ -11,20 +11,23 @@ body {
 nav {
     padding-left: 5%;
     padding-right: 5%;
-    background-color: #703452;
-    display: flex;
+    background-color: white;
+    display: grid;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+nav img {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 .conteiner {
     display: grid;
     grid-template-columns: 1fr;
-}
-
-.logo-img {
-    width: 100px;
 }
 
 nav ul {
@@ -39,99 +42,52 @@ nav ul li {
 }
 
 nav a {
-    color: white;
+    color: #703452;
     text-decoration: none;
 }
 
-.motivation {
-    display: flex;
-    padding: 20px;
+#title {
+    display: grid;
     justify-content: center;
     align-items: center;
-}
-
-.motivation img {
-    width: 500px;
-}
-
-#motivation-txt {
-    display: grid;
-    padding-right: 20px;
-}
-
-#motivation-txt h1 {
-    padding-bottom: 20px;
-    background: -webkit-linear-gradient(#703452, #ffcde8);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#motivation-txt h2 {
-    padding-bottom: 10px;
-}
-
-#motivation-txt h3 {
-    padding-bottom: 5px;
-}
-
-#motivation-txt p {
-    text-align: justify;
-}
-
-#course-div {
-    display: grid;
-}
-
-.course {
-    display: flex;
-    justify-content: space-around;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.course-lvl {
-    display: grid;
-    border: 1px solid #ffcde8;
-    border-radius: 10px;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    margin: 12px;
-    overflow: hidden;
-    align-content: center;
-    justify-content: center;
-    background-color: #ffcde8;
+    margin-top: 30px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* background-color: #ffcde8; */
+    background-image: url("../images/pic1.jpg");
+    padding: 100px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    color: white;
 }
 
-.course-lvl img {
+#title h1 {
+    font-size: 50px;
+}
+
+#title p {
+    font-size: 26px;
+    padding-top: 10px;
+}
+
+.ilusimg {
     width: 100px;
-    padding-bottom: 20px;
-}
-
-#course-div {
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-#course-div h2 {
-    padding-bottom: 20px;
-    text-align: center;
 }
 
 footer {
-    padding: 16px 5%;
-    border-top: 1px solid #703452;
+    padding: 12px 5%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 footer p {
     text-align: center;
+    padding-right: 10px;
 }
+
