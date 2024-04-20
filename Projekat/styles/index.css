@@ -86,8 +86,87 @@ nav a {
     padding-left: 60px;
 }
 
-.ilusimg {
+.cards .ilusimg {
+    width: 200px;
+    margin: auto;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.cards h1 {
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cards p {
+    text-align: justify;
+    padding-bottom: 10px;
+}
+
+.cards ol {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.cards ol li {
+    padding-bottom: 10px;
+}
+
+.cards button {
+    height: 50px;
     width: 100px;
+    background-color: #ffcde8;
+    color: #703452;
+    border: none;
+    border-radius: 30px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.cards button:hover {
+    background-color: #703452;
+    box-shadow: 0px 15px 20px #703452;
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.cards {
+    text-align: center;
+    padding: 100px;
+}
+
+#firstdiv {
+    background-color: #ffcde8;
+}
+
+#thirddiv {
+    background-color: #703452;
+    color: white;
+}
+
+#thirddiv button {
+    background-color: #703452;
+    color: white;
+
+    box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+#thirddiv button:hover {
+    background-color: #ffcde8;
+    box-shadow: 0px 15px 20px #ffcde8;
+    color: #703452;
+    transform: translateY(-7px);
 }
 
 footer {
