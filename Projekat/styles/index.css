@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -11,19 +12,18 @@ body {
 nav {
     padding-left: 5%;
     padding-right: 5%;
-    background-color: white;
     display: grid;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* background-image: url("../images/pic3.jpg"); */
+    background-color: white;
+    height: 50px;
 }
 
-nav img {
+/* nav img {
     width: 150px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-}
+} */
 
 .conteiner {
     display: grid;
@@ -32,13 +32,16 @@ nav img {
 
 nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
 }
 
 nav ul li {
-    display: inline-block;
+    margin-top: 10px;
     margin-right: 16px;
+    display: inline;
 }
 
 nav a {
@@ -47,26 +50,40 @@ nav a {
 }
 
 #title {
-    display: grid;
+    /* display: grid; */
+    /* background-color: #ffcde8; */
+    background-image: url("../images/title-pic.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
     text-align: center;
-    /* background-color: #ffcde8; */
-    background-image: url("../images/pic1.jpg");
-    padding: 100px;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    color: white;
+    /* padding: 200px; */
 }
 
 #title h1 {
-    font-size: 50px;
+    font-size: 130px;
+    text-transform: uppercase;
+    font-family: "Ruslan Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 1px 1px 2px black;
+    color: #ffcde8;
 }
 
 #title p {
-    font-size: 26px;
+    font-size: 18px;
     padding-top: 10px;
+}
+
+#title-div {
+    display: block;
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 60px;
 }
 
 .ilusimg {
