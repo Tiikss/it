@@ -147,6 +147,18 @@ nav a {
     background-color: #ffcde8;
 }
 
+#seconddiv button {
+    background-color: white;
+    color: #703452;
+}
+
+#seconddiv button:hover {
+    background-color: #703452;
+    box-shadow: 0px 15px 20px #703452;
+    color: white;
+    transform: translateY(-7px);
+}
+
 #thirddiv {
     background-color: #703452;
     color: white;
