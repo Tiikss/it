@@ -81,8 +81,17 @@ header h1 {
     padding-bottom: 10px;
 }
 
+#statistic img {
+    width: 50px;
+    padding-right: 10px;
+}
+
+#statistic-title {
+    display: inline-flex;
+}
+
 #statistic h3 {
-    font-size: 24px;
+    font-size: 26px;
     padding-bottom: 10px;
 }
 
