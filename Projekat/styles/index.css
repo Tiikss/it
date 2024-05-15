@@ -18,6 +18,10 @@ nav {
     height: 50px;
 }
 
+.conteiner nav ul li a:hover {
+    border-bottom: 1px solid #703452;
+}
+
 /* nav img {
     width: 150px;
     margin-left: auto;
@@ -192,6 +196,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-content i {
+    padding-right: 5px;
 }
 
 footer p {
