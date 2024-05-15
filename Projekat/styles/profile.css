@@ -11,7 +11,7 @@
 
 body {
     font-family: sans-serif;
-    background-color: #ffcde8;
+    background-color: white;
     color: #703452;
     height: 100vh;
 }
@@ -69,7 +69,9 @@ a {
 #main {
     padding-top: 60px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
     align-content: center;
     width: 90%;
     margin-left: auto;
@@ -87,10 +89,9 @@ a {
 }
 
 #info {
-    background-color: white;
+    background-image: linear-gradient(180deg, white, #ffcde8);
     color: #703452;
-    border: 1px solid #ffcde8;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -125,6 +126,18 @@ a {
     text-align: center;
 } */
 
+#statistic {
+    width: 350px;
+    background-image: linear-gradient(180deg, #ffcde8, white);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+
+}
+
 #statistic img {
     width: 50px;
     padding-right: 10px;
@@ -132,13 +145,14 @@ a {
 
 #statistic-title {
     display: inline-flex;
+    padding-bottom: 20px;
     /* padding-top: 20px;
     padding-left: 20px; */
 }
 
-#statistic h3 {
+#statistic-title h3 {
+    text-align: left;
     font-size: 26px;
-    padding-bottom: 10px;
 }
 
 footer {
@@ -158,6 +172,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-content i {
+    padding-right: 5px;
 }
 
 footer p {
