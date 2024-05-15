@@ -111,25 +111,34 @@ a {
 }
 
 #join-div h3 {
-    padding: 0;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+#join-div p {
+    font-size: 20px;
+}
+
+#join-div img {
+    width: 350px;
 }
 
 #join-div {
-    margin-top: 30px;
     background-color: #ffcde8;
     color: #703452;
-    padding: 20px;
-    width: 500px;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    border-radius: 10px;
+    padding: 30px;
+    gap: 30px;
 }
 
 .wrapper {
 	max-width: 600px;
 	margin: 0 auto;
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .wrapper h1 {
@@ -185,27 +194,62 @@ a {
 
 #about-cards {
     display: flex;
-    flex-direction: row;
+    align-content: space-around;
     justify-content: center;
-    align-content: center;
+    flex-wrap: wrap;
+    margin: 64px 0;
+    gap: 20px;
 }
 
-#about-cards img {
-    width: 200px;
-}
-
-.employ {
-    background-color: white;
-    color: #703452;
+#about-cards .employ {
     width: 300px;
-    height: 300px;
-    justify-content: center;
-    align-content: center;
+    height: 350px;
+    margin: 12px;
     border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.347);
+    overflow: hidden;
+    align-content: center;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+    color: #703452;
 }
 
-#first-employ {
-    margin-right: 10px;
+.title-meet {
+    text-align: center;
+    margin-top: 50px;
+    color: #703452;
+}
+
+.title-meet h1 {
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+.title-meet p {
+    font-size: 18px;
+}
+
+.employ img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.employ h3 {
+    text-align: center;
+    font-size: 22px;
+    padding-top: 20px;
+}
+
+.employ p{
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+}
+
+.employ:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transform: scale(1.1);
 }
 
 footer {
@@ -221,6 +265,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-content i {
+    padding-right: 5px;
 }
 
 footer p {
