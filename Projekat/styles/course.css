@@ -54,7 +54,65 @@ a {
     border-bottom: 1px solid #ffcde8;
 }
 
+.course-main {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
 
+.course-main #course-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+#course-cards {
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 64px 0;
+    gap: 20px;
+}
+
+#course-cards .lesson-card {
+    width: 300px;
+    height: 350px;
+    margin: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    align-content: center;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+    color: #703452;
+    background-color: #ffcde87e;
+}
+
+.lesson-card img {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100px;
+}
+
+.lesson-card h3 {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 20px;
+}
+
+.lesson-card h1{
+    text-align: center;
+    font-size: 22px;
+    padding-top: 10px;
+}
+
+.lesson-card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transform: scale(1.1);
+}
 
 footer {
     padding: 12px 5%;
