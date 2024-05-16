@@ -12,7 +12,16 @@ html, body {
     align-items: center; 
     flex-direction: column; 
     background-color: #ffcde8;
-    color: darkmagenta;
+    color: #703452;
+}
+
+a {
+    text-decoration: none;
+    color: #703452;
+}
+
+a:hover {
+    border-bottom: 1px solid #703452;
 }
 
 #content {
@@ -55,15 +64,17 @@ input {
     height: 30px;
     width: 300px;
     border-radius: 20px;
-    border: 1px solid darkmagenta;
+    border: 1px solid #703452;
 }
 
 #subm {
     margin-top: 20px;
     background-color: #ffcde8;
-    color: darkmagenta;
+    color: #703452;
     border: 1px solid #a45d830a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 1;
+    transition: all 0.5s ease;
 }
 
 #login-div {
@@ -76,11 +87,24 @@ input {
 
 #logo-title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 #image {
     display: flex;
     justify-content: center;
+}
+
+#logo-title img {
+    width: 50px;
+}
+
+#subm:hover {
+    background-color: #703452;
+    color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    scale: 1.1;
+    transition: all 0.5s ease;
 }

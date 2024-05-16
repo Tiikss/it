@@ -11,7 +11,16 @@ html, body {
     justify-content: center;
     align-items: center; 
     background-color: #ffcde8;
-    color: darkmagenta;
+    color: #703452;
+}
+
+a {
+    text-decoration: none;
+    color: #703452;
+}
+
+a:hover {
+    border-bottom: 1px solid #703452;
 }
 
 .registration {
@@ -33,7 +42,7 @@ html, body {
 .reg-title h1 {
     font-size: 46px;
     padding-bottom: 10px;
-    background: -webkit-linear-gradient(#ffcde8, darkmagenta);
+    background: -webkit-linear-gradient(#ffcde8, #703452);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -45,6 +54,7 @@ html, body {
 form {
     align-items: center;
     justify-content: center;
+    padding-left: 20px;
 }
 
 label {
@@ -56,33 +66,42 @@ input {
     height: 30px;
     width: 300px;
     border-radius: 20px;
-    border: 1px solid darkmagenta;
+    border: 1px solid #703452;
 }
 
 .sign-in {
     margin-top: 20px;
     background-color: #ffcde8;
-    color: darkmagenta;
+    color: #703452;
     border: 1px solid #a45d830a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 1;
+    transition: all 0.5s ease;
 }
 
 img {
     width: 400px;
-    padding-right: 30px;
 }
 
 .big-div {
     display: flex;
 }
 
-#logo-title img {
-    width: 100px;
-    padding-right: 5px;
-}
-
 #logo-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+}
+
+#logo-title img {
+    width: 50px;
+}
+
+.sign-in:hover {
+    background-color: #703452;
+    color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    scale: 1.1;
+    transition: all 0.5s ease;
 }
