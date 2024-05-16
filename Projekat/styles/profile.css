@@ -139,6 +139,7 @@ a {
 }
 
 #statistic img {
+    margin-top: 10px;
     width: 50px;
     padding-right: 10px;
 }
@@ -151,6 +152,7 @@ a {
 }
 
 #statistic-title h3 {
+    margin-top: 10px;
     text-align: left;
     font-size: 26px;
 }
