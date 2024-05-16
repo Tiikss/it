@@ -157,13 +157,17 @@ nav a {
 #firstdiv {
     background-color: #ffcde8;
     position: relative;
-    height: 900px;
+    height: 950px;
     padding-top: 50px;
+}
+
+#firstdiv button {
+    z-index: 3;
 }
 
 #seconddiv {
     position: relative;
-    height: 900px;
+    height: 950px;
 }
 
 #seconddiv button {
