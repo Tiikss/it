@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Painter;
+    src: url(../fonts/PainterPersonalUseOnly-Br0w.ttf);
+}
+
 body {
     font-family: sans-serif;
     color: #703452;
@@ -69,9 +74,10 @@ nav a {
 }
 
 #title h1 {
-    font-size: 130px;
+    font-size: 120px;
+    text-align: center;
     text-transform: uppercase;
-    font-family: "Ruslan Display", sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     font-style: normal;
     text-shadow: 1px 1px 2px black;
@@ -149,6 +155,13 @@ nav a {
 
 #firstdiv {
     background-color: #ffcde8;
+    position: relative;
+    height: 900px;
+}
+
+#seconddiv {
+    position: relative;
+    height: 900px;
 }
 
 #seconddiv button {
@@ -185,6 +198,12 @@ nav a {
     transform: translateY(-7px);
 }
 
+svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 footer {
     padding: 12px 5%;
     display: grid;
@@ -206,4 +225,3 @@ footer p {
     text-align: center;
     padding-right: 10px;
 }
-
