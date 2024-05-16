@@ -151,12 +151,14 @@ nav a {
 .cards {
     text-align: center;
     padding: 100px;
+    padding-top: 30px;
 }
 
 #firstdiv {
     background-color: #ffcde8;
     position: relative;
     height: 900px;
+    padding-top: 50px;
 }
 
 #seconddiv {
@@ -198,7 +200,7 @@ nav a {
     transform: translateY(-7px);
 }
 
-svg {
+.bottom-wave {
     position: absolute;
     bottom: 0;
     left: 0;
