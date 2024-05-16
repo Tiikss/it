@@ -77,7 +77,7 @@ a {
     gap: 20px;
 }
 
-#course-cards .lesson-card {
+.lesson-card {
     width: 300px;
     height: 350px;
     margin: 12px;
@@ -109,9 +109,15 @@ a {
     padding-top: 10px;
 }
 
+.lesson-card {
+    scale: 1;
+    transition: scale 0.5s ease;
+}
+
 .lesson-card:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    transform: scale(1.1);
+    scale: 1.1;
+    transition: scale 0.5s ease;
 }
 
 footer {
