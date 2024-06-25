@@ -1,29 +1,23 @@
-nav {
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+
+#home-nav {
     padding-left: 5%;
     padding-right: 5%;
     display: grid;
-    /* background-image: url("../images/pic3.jpg"); */
     background-color: white;
     height: 50px;
 }
 
-.conteiner-home nav ul li a:hover {
+.conteiner-home #home-nav ul li a:hover {
     border-bottom: 1px solid #703452;
 }
-
-/* nav img {
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-} */
 
 .conteiner-home {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-nav ul {
+#home-nav ul {
     list-style-type: none;
     justify-content: center;
     align-items: center;
@@ -31,43 +25,41 @@ nav ul {
     padding-top: 20px;
 }
 
-nav ul li {
+#home-nav ul li {
     margin-top: 10px;
     margin-right: 16px;
     display: inline;
 }
 
-nav a {
+#home-nav a {
     color: #703452;
     text-decoration: none;
 }
 
 #title-home {
-    /* display: grid; */
-    /* background-color: #ffcde8; */
     background-image: url("../images/title-pic.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* padding: 200px; */
 }
 
-#title-home h1 {
+#home-ttl-h1 {
     font-size: 130px;
+    letter-spacing: 7px;
+    text-align: center;
     text-transform: uppercase;
-    font-family: "Ruslan Display", sans-serif;
+    font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
     text-shadow: 1px 1px 2px black;
     color: #ffcde8;
 }
 
-#title-home p {
+.home-p {
     font-size: 18px;
     padding-top: 10px;
 }
@@ -76,7 +68,7 @@ nav a {
     display: block;
     text-align: left;
     padding-top: 30px;
-    padding-left: 60px;
+    /* padding-left: 60px; */
 }
 
 .cards-home .ilusimg {
@@ -86,12 +78,12 @@ nav a {
     padding-bottom: 20px;
 }
 
-.cards-home h1 {
+.home-h1 {
     padding-bottom: 20px;
     text-transform: uppercase;
 }
 
-.cards-home p {
+.home-p {
     text-align: justify;
     padding-bottom: 10px;
 }
@@ -105,9 +97,10 @@ nav a {
 
 .cards-home ol li {
     padding-bottom: 10px;
+    font-size: 18px;
 }
 
-.cards-home button {
+.home-btn {
     height: 50px;
     width: 100px;
     background-color: #ffcde8;
@@ -124,7 +117,7 @@ nav a {
     outline: none;
 }
 
-.cards-home button:hover {
+.cards-home .home-btn:hover {
     background-color: #703452;
     box-shadow: 0px 15px 20px #703452;
     color: #fff;
@@ -138,10 +131,12 @@ nav a {
 
 #firstdiv-home {
     background-color: #ffcde8;
+    color: #703452;
 }
 
 #seconddiv-home {
     background-color: white;
+    color: #703452;
 }
 
 #seconddiv-home button {
@@ -178,24 +173,30 @@ nav a {
     transform: translateY(-7px);
 }
 
-footer {
+#home-footer {
     padding: 12px 5%;
     display: grid;
     align-items: center;
     justify-content: center;
 }
 
-.footer-content {
+.home-footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.footer-content i {
-    padding-right: 5px;
+#home-footer .home-footer-p {
+    text-align: center;
+    color: #703452;
+    padding-right: 10px;
 }
 
-footer p {
-    text-align: center;
-    padding-right: 10px;
+#home-footer-icn-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    color: #703452;
 }
