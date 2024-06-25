@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
+import Course from "./pages/Course";
+import Lesson from "./pages/Lesson";
 
 const Layout = () => {
   return (
@@ -47,22 +49,14 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "/lessons",
-        element: <div>Lessons</div>,
-      },
-      {
-        path: "/lesson/:id",
-        element: <div>Lesson</div>,
-      },
-      {
-        path: "/courses",
-        element: <div>Courses</div>,
-      },
-      {
         path: "/course/:id",
-        element: <div>Course</div>,
+        element: <Course />,
       }
     ]
+  },
+  {
+    path: "/course/:courseId/lesson/:lessonId",
+    element: <Lesson />,
   }
 ]);
 
