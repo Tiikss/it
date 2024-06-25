@@ -1,23 +1,8 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    font-family: sans-serif;
-    color: #703452;
-}
-
-a {
-    text-decoration: none;
-    color: #2769b5;
-}
-
-.padding-nav {
+.lesson-padding-nav {
     padding: 16px 10%;
 }
 
-.container .nav {
+.lesson-container .lesson-nav {
     background-color: #703452;
     /* border-bottom: 1px solid #703452; */
     display: flex;
@@ -26,163 +11,181 @@ a {
     justify-content: space-between;
 }
 
-.container .nav img {
+#lesson-header {
+    position: fixed;
+    width: 100%;
+}
+
+#lesson-logo-img {
     height: 50px;
 }
 
-.container .nav ul {
+.lesson-container .lesson-nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.container .nav ul li {
+.lesson-container .lesson-nav ul li {
     display: inline-block;
     margin-right: 16px;
 }
 
-.container .nav ul li:last-child {
+.lesson-container .lesson-nav ul li:last-child {
     margin-right: 0;
 }
 
-.container .nav ul li a {
+.lesson-container .lesson-nav ul li a {
     padding: 4px 8px;
     color: #ffcde8;
 }
 
-.container .nav ul li a:hover {
+.lesson-container .lesson-nav ul li a:hover {
     border-bottom: 1px solid #ffcde8;
 }
 
 .lesson-main {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex: 1;
+    padding-top: 82px;
+}
+
+#vertical-menu-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    padding-top: 82px;
+
+}
+
+.vertical-menu {
+    width: 200px;
+    background-color: #fff;
+    padding: 10px;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+}
+
+.vertical-menu a {
+    background-color: #fff;
+    color: #703452;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #703452;
+}
+
+.vertical-menu a:hover {
+    background-color: #ffcde8;
+}
+
+.vertical-menu a.active {
+    background-color: #703452;
+    color: #fff;
 }
 
 .lesson-content {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 220px; /* Adjust based on the width of the sidebar */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
 }
 
 .lesson-txt {
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 50px;
     align-items: center;
+    padding: 20px;
+    gap: 20px;
+    min-height: 100vh;
 }
 
-.lesson-txt h1 {
+.lesson-h1 {
     color: #703452;
     font-family: "Poetsen One", sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     text-align: center;
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .lesson-txt p {
-    text-align: justify;
     font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
 }
 
 #explain {
-    padding-bottom: 50px;
+    color: #703452;
 }
 
 .test {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 50px;
-    align-items: right;
+    margin-top: 20px;
     background-color: #ffcde8;
-    font-size: 16px;
     border-radius: 10px;
+    padding: 40px;
 }
 
-input {
+.test label {
+    display: block;
     margin-bottom: 10px;
-    height: 30px;
-    width: 300px;
-    border-radius: 20px;
-    border: 1px solid #ffcde8;
-}
-
-#subm {
-    width: 100px;
-    margin-top: 10px;
-    background-color: #ffcde8;
     color: #703452;
-    border: 1px solid #a45d830a;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    scale: 1;
-    transition: all 0.5s ease;
 }
 
-#subm:hover {
+.test input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.test input[type="submit"] {
+    background-color: #ffcde8;
+    border: 1px solid #703452;
+    color: #703452;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.test input[type="submit"]:hover {
     background-color: #703452;
-    color: white;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    scale: 1.1;
-    transition: all 0.5s ease;
+    color: #fff;
 }
 
-.vertical-menu {
-    width: 550px;
-    height: 600px;
-    overflow-y: auto;
-}
-  
-.vertical-menu a {
-    background-color: #eee;
-    color: #703452;
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-}
-  
-.vertical-menu a:hover {
-    background-color: #ffcde86f;
-}
-  
-.vertical-menu a.active {
-    background-color: #ffcde8;
-    color: #703452;
-}
-
-#backgroundpic {
-    width: 280px;
-    position: relative;
-}
-
-#backgroundpic {
-    height: 40%;
-    display: block;
-    position: sticky;
-    top: 60%;
-}
-
-footer {
+#lesson-footer {
     padding: 12px 5%;
     display: grid;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    color: #703452;
 }
 
-.footer-content {
+.lesson-footer-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.footer-content i {
-    padding-right: 5px;
+.lesson-footer-p {
+    text-align: center;
+    color: #703452;
+    padding-right: 10px;
 }
 
-footer p {
-    text-align: center;
-    padding-right: 10px;
+#lesson-footer-icn-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    color: #703452;
 }
