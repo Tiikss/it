@@ -1,30 +1,18 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
+#login-body {
+    display: flex;
     justify-content: center;
-    align-items: center; 
-    flex-direction: column; 
+    align-items: center;
+    height: 100vh;
     background-color: #ffcde8;
-    color: #703452;
 }
 
-a {
-    text-decoration: none;
-    color: #703452;
-}
-
-a:hover {
-    border-bottom: 1px solid #703452;
-}
-
-#content {
+#content-login {
     display: flex;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -33,41 +21,43 @@ a:hover {
     background-color: white;
 }
 
-img {
+#login-img {
     width: 500px;
 }
 
-h1 {
+#h1-login {
     text-align: center;
     font-size: 46px;
-    padding-bottom: 10px;
     background: -webkit-linear-gradient(#a45d83, #ffcde8);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-p {
+#login-p-mess {
     text-align: center;
-    padding-bottom: 50px;
+    color: #703452;
+    /* padding-bottom: 50px; */
 }
 
-form {
+#form-login {
     display: grid;
 }
 
-label {
+.login-lbl {
     padding-bottom: 10px;
+    color: #703452;
 }
 
-input {
+.login-inp {
     margin-bottom: 10px;
     height: 30px;
     width: 300px;
     border-radius: 20px;
     border: 1px solid #703452;
+    padding-left: 10px;
 }
 
-#subm {
+#subm-login {
     margin-top: 20px;
     background-color: #ffcde8;
     color: #703452;
@@ -79,29 +69,37 @@ input {
 
 #login-div {
     padding-right: 40px;
+    padding-top: 20px;
 }
 
-#login-div img {
+#login-logo-img {
     width: 100px;
 }
 
-#logo-title {
+#logo-title-login {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
 }
 
-#image {
+#login-ttl {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#image-login {
     display: flex;
     justify-content: center;
 }
 
-#logo-title img {
+#logo-title-login img {
     width: 50px;
 }
 
-#subm:hover {
+#subm-login:hover {
     background-color: #703452;
     color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

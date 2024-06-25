@@ -1,17 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-    margin: 0; 
-    padding: 0; 
-    display: grid; 
-    justify-content: center;
-    align-items: center; 
+#register-body {
     background-color: #ffcde8;
-    color: #703452;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 a {
@@ -24,10 +16,17 @@ a:hover {
 }
 
 .registration {
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
-.content {
+.content-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+
     border: 1px solid #ffcde8;
     border-radius: 20px;
     padding: 30px;
@@ -37,41 +36,44 @@ a:hover {
 
 .reg-title {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.reg-title h1 {
+.reg-title #h1-reg {
     font-size: 46px;
-    padding-bottom: 10px;
+    /* padding-bottom: 2px; */
     background: -webkit-linear-gradient(#ffcde8, #703452);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.reg-title p {
-    padding-bottom: 30px;
+#reg-p-mess {
+    /* padding-bottom: 15px; */
+    color: #703452;
 }
 
-form {
-    align-items: center;
-    justify-content: center;
-    padding-left: 20px;
-}
-
-label {
+.reg-lbl {
     padding-bottom: 10px;
+    color: #703452;
 }
 
-input {
+.reg-inp {
     margin-bottom: 10px;
     height: 30px;
     width: 300px;
     border-radius: 20px;
     border: 1px solid #703452;
+    padding-left: 10px;
 }
 
-.sign-in {
+#sign-in-register {
     margin-top: 20px;
     background-color: #ffcde8;
+    border-radius: 20px;
+    padding: 5px;
     color: #703452;
     border: 1px solid #a45d830a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -79,29 +81,33 @@ input {
     transition: all 0.5s ease;
 }
 
-img {
-    width: 400px;
+#register-img {
+    width: 500px;
+    height: 400px;
 }
 
-.big-div {
+.big-div-register {
     display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-#logo-title {
+#logo-title-register {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
 }
 
-#logo-title img {
+#logo-img-reg {
     width: 50px;
 }
 
-.sign-in:hover {
+#sign-in-register:hover {
     background-color: #703452;
     color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     scale: 1.1;
     transition: all 0.5s ease;
 }
+
