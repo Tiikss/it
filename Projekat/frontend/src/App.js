@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
+import Profile from "./pages/Profile";
 
 const Layout = () => {
   return (
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <div>Profile</div>,
+        element: <Profile />,
       },
       {
         path: "/lessons",
