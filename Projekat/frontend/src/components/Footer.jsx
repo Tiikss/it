@@ -8,6 +8,7 @@ const Footer = () => {
         <div id="footer-container">
             <footer>
                 <div id="footer-icn-div">
+                    <p className="footer-p">Prati nas:</p>
                     <FontAwesomeIcon icon={faInstagram} className="footer-icn" />
                     <p className="footer-p">@lingua_franca</p>
                     <FontAwesomeIcon icon={faFacebook} className="footer-icn" />
