@@ -4,6 +4,8 @@ import "../styles/lesson.css";
 import lesson_slika1 from "../images/logo3.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import slika_like from "../images/like_icon.png";
+import slika_dislike from "../images/dislike_icon.png";
 
 const Lesson = () => {
     return (
@@ -119,6 +121,18 @@ const Lesson = () => {
                         <p id="less-p">Tvoje mišljenje nam mnogo znači! Reci nam šta misliš o lekciji!</p>
                         <form className="lesson-comment-form">
                             <textarea name="comment" id="lesson-comment" cols="40" rows="5" required></textarea>
+                            <div id="like-div">
+                                <label id="like-lbl">
+                                    <input type="radio" id="like" name="like" value="like" />
+                                    <img src={slika_like} alt="Like" id="like-img" />
+                                </label>
+
+                                <label id="dislike-lbl">
+                                    <input type="radio" id="dislike" name="like" value="dislike" />
+                                    <img src={slika_dislike} alt="Dislike" id="dislike-img" />
+                                </label>
+                            </div>
+
                             <input type="submit" value="Pošalji" id="lesson-subm"/>
                         </form>
                     </div>
