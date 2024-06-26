@@ -3,8 +3,12 @@ import logo from "../images/logo3.png"
 import login_slika2 from "../images/19197876.jpg"
 import "../styles/login.css"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 const Login = () => {
+    const navigate = useNavigate();
+
     return (
         <main id="login-body">
             <div id="content-login">
@@ -17,13 +21,11 @@ const Login = () => {
                         <p id="login-p-mess">Nemaš nalog? <Link to="/register">Registruj se sada!</Link></p>
                     </div>
                     <form id="form-login">
-                        <label className="login-lbl" htmlFor="username">Korisničko ime:</label>
-                        <input type="text" name="username" id="username-login" className="login-inp" required />
+                        <input type="text" name="username" id="username-login" placeholder="Korisničko ime" className="login-inp" required />
 
-                        <label className="login-lbl" htmlFor="password">Lozinka:</label>
-                        <input type="password" name="password" id="password-login" className="login-inp" required />
+                        <input type="password" name="password" id="password-login" placeholder="Lozinka" className="login-inp" required />
 
-                        <input type="submit" value="Prijavi se" id="subm-login" className="login-inp" />
+                        <input type="submit" value="Prijavi se" id="subm-login" className="login-inp" onClick={() => navigate(`/`)} />
                     </form>
                 </div>
                 <div id="image-login">
