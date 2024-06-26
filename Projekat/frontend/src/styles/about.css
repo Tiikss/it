@@ -195,3 +195,230 @@
     scale: 1.1;
     transition: scale 0.5s ease;
 }
+
+
+@media (max-width: 1024px) {
+    #us-div,
+    #access-div,
+    #join-div {
+        flex-direction: column;
+        padding: 20px 40px;
+        gap: 15px;
+    }
+
+    #us-div img,
+    #access-div img,
+    #join-div img {
+        width: 300px;
+    }
+
+    #us-div h3,
+    #access-div h3,
+    #join-div h3 {
+        font-size: 25px;
+    }
+
+    #us-div p,
+    #access-div p,
+    #join-div p {
+        font-size: 18px;
+    }
+
+    .wrapper {
+        max-width: 100%;
+        padding: 20px 30px;
+    }
+
+    .wrapper h1 {
+        font-size: 35px;
+    }
+
+    .wrapper li {
+        padding: 1rem;
+        width: calc(100% - 1rem);
+    }
+
+    .wrapper li::before {
+        font-size: 2.5rem;
+    }
+
+    #about-cards {
+        gap: 15px;
+        margin: 40px 0;
+    }
+
+    .employ {
+        width: 250px;
+        height: 300px;
+    }
+
+    .employ img {
+        width: 120px;
+    }
+
+    .title-meet h1 {
+        font-size: 25px;
+    }
+
+    .title-meet p {
+        font-size: 16px;
+    }
+
+    .employ h3 {
+        font-size: 20px;
+    }
+
+    .employ p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    #us-div,
+    #access-div,
+    #join-div {
+        flex-direction: column;
+        padding: 15px 30px;
+        gap: 10px;
+    }
+
+    #us-div img,
+    #access-div img,
+    #join-div img {
+        width: 250px;
+    }
+
+    #us-div h3,
+    #access-div h3,
+    #join-div h3 {
+        font-size: 20px;
+    }
+
+    #us-div p,
+    #access-div p,
+    #join-div p {
+        font-size: 16px;
+    }
+
+    .wrapper {
+        padding: 15px 20px;
+    }
+
+    .wrapper h1 {
+        font-size: 30px;
+    }
+
+    .wrapper li {
+        padding: 0.75rem;
+        width: calc(100% - 0.75rem);
+    }
+
+    .wrapper li::before {
+        font-size: 2rem;
+    }
+
+    #about-cards {
+        gap: 10px;
+        margin: 30px 0;
+    }
+
+    .employ {
+        width: 200px;
+        height: 250px;
+    }
+
+    .employ img {
+        width: 100px;
+    }
+
+    .title-meet h1 {
+        font-size: 20px;
+    }
+
+    .title-meet p {
+        font-size: 14px;
+    }
+
+    .employ h3 {
+        font-size: 18px;
+    }
+
+    .employ p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    #us-div,
+    #access-div,
+    #join-div {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 5px;
+    }
+
+    #us-div img,
+    #access-div img,
+    #join-div img {
+        width: 200px;
+    }
+
+    #us-div h3,
+    #access-div h3,
+    #join-div h3 {
+        font-size: 18px;
+    }
+
+    #us-div p,
+    #access-div p,
+    #join-div p {
+        font-size: 14px;
+    }
+
+    .wrapper {
+        padding: 10px 15px;
+    }
+
+    .wrapper h1 {
+        font-size: 25px;
+    }
+
+    .wrapper li {
+        padding: 0.5rem;
+        width: calc(100% - 0.5rem);
+    }
+
+    .wrapper li::before {
+        font-size: 1.5rem;
+    }
+
+    #about-cards {
+        gap: 5px;
+        margin: 20px 0;
+    }
+
+    .employ {
+        width: 150px;
+        height: 200px;
+    }
+
+    .employ img {
+        width: 80px;
+    }
+
+    .title-meet h1 {
+        font-size: 18px;
+    }
+
+    .title-meet p {
+        font-size: 12px;
+    }
+
+    .employ h3 {
+        font-size: 16px;
+    }
+
+    .employ p {
+        font-size: 10px;
+    }
+}
