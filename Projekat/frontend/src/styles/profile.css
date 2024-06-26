@@ -73,3 +73,19 @@
 #profile-p {
     color: #703452;
 }
+
+#profile-btn {
+    margin-top: 10px;
+    background-color: #703452;
+    border: 1px solid #703452;
+    border-radius: 50px;
+    color: #ffcde8;
+    padding: 6px 16px;
+    cursor: pointer;
+    width: max-content;
+}
+
+#profile-btn:hover {
+    background-color: #ffcde8;
+    color: #703452;
+}
