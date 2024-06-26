@@ -115,3 +115,92 @@ a:hover {
     transition: all 0.5s ease;
 }
 
+@media (max-width: 1024px) {
+    #register-body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .content-register {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #register-img {
+        margin-bottom: 20px;
+    }
+
+    .reg-inp {
+        width: 100%;
+    }
+
+    #sign-in-register {
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+}
+
+@media (max-width: 950px) {
+    #register-body {
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .content-register {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .big-div-register {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #register-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .reg-title #h1-reg {
+        font-size: 30px;
+    }
+
+    .reg-inp {
+        width: 90%;
+    }
+
+    #sign-in-register {
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    #register-body {
+        padding-left: 10px;
+        padding-right: 10px;
+        min-height: 100vh;
+        max-height: fit-content;
+    }
+
+    .content-register {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .reg-title #h1-reg {
+        font-size: 24px;
+    }
+
+    .reg-inp {
+        width: 100%;
+    }
+
+    #sign-in-register {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
