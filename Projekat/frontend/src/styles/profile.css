@@ -194,7 +194,8 @@
     }
 
     #profile-statistic {
-        padding: 5px;
+        padding: 10px;
+        padding-left: 20px;
     }
 
     #profile-statistic img {
