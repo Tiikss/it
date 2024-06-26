@@ -30,9 +30,9 @@ const About = () => {
                     <img src={slike2} alt="Učenje jezika" className="about-img" />
                     <div id="access-text">
                         <h3>Naš pristup</h3>
-                        <p>U "Lingua Franca", verujemo da je učenje jezika više od pukog usvajanja gramatike i vokabulara.
+                        <p>U "Lingua Franca", vjerujemo da je učenje jezika više od pukog usvajanja gramatike i vokabulara.
                             Naš
-                            pristup podrazumeva kombinaciju raznih metoda, tehnološki podržanih resursa i prilagođenih
+                            pristup podrazumijeva kombinaciju raznih metoda, tehnološki podržanih resursa i prilagođenih
                             materijala koji su dizajnirani da odgovore na vaše specifične potrebe i stilove učenja. Naši
                             iskusni
                             nastavnici su posvećeni tome da vas inspirišu i vode kroz vaš jezički put, osiguravajući da
@@ -48,13 +48,13 @@ const About = () => {
                         <li>Stručnost – naš tim čine kvalifikovani profesori engleskog jezika koji su strastveni u
                             prenošenju
                             znanja.</li>
-                        <li>Inovativnost – uvek tražimo nove i efikasne načine kako bismo unapredili proces učenja i učinili
+                        <li>Inovativnost – uvijek tražimo nove i efikasne načine kako bismo unaprijedili proces učenja i učinili
                             ga
                             što prijatnijim i pristupačnijim za sve.</li>
-                        <li>Individualni pristup – razumemo da svaki učenik ima jedinstvene potrebe i ciljeve, te
+                        <li>Individualni pristup – razumijemo da svaki učenik ima jedinstvene potrebe i ciljeve, te
                             prilagođavamo
                             naš program kako bi maksimalno koristio svakom pojedincu.</li>
-                        <li>Zajednica – težimo da stvorimo toplo i podržavajuće okruženje gdje se svi učenici mogu osećati
+                        <li>Zajednica – težimo da stvorimo toplo i podržavajuće okruženje gdje se svi učenici mogu osjećati
                             dobrodošlo i motivisano.</li>
                     </ol>
                 </div>
@@ -66,7 +66,7 @@ const About = () => {
                             koji
                             želi
                             da
-                            usavrši svoje veštine, "Lingua Franca" nudi kurseve koji će zadovoljiti vaše potrebe.</p>
+                            usavrši svoje vještine, "Lingua Franca" nudi kurseve koji će zadovoljiti vaše potrebe.</p>
                     </div>
                     <img src={slike3} alt="Učenje jezika" className="about-img" />
                 </div>
