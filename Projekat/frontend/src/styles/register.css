@@ -143,7 +143,44 @@ a:hover {
 
 @media (max-width: 950px) {
     #register-body {
+        height: 100vh;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .content-register {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .big-div-register {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #register-img {
+        width: 100%;
         height: auto;
+    }
+
+    .reg-title #h1-reg {
+        font-size: 30px;
+    }
+
+    .reg-inp {
+        width: 90%;
+    }
+
+    #sign-in-register {
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+}
+
+@media (max-width: 770px) {
+    #register-body {
+        height: 100vh;
         padding-top: 10px;
         padding-bottom: 10px;
     }
