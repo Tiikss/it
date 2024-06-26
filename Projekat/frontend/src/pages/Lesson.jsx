@@ -105,34 +105,21 @@ const Lesson = () => {
                             reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
                             Sunt,
                             autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
                             Ullam voluptatem atque nam architecto mollitia?</p>
                         <form className="test">
                             <label htmlFor="answer1">Ovo je neko pitanje na koje neko treba da da neki odgovor koji treba da
                                 bude tacan, hehe...</label>
                             <input type="text" name="answer" id="answer1" required/>
                             <input type="submit" value="Potvrdi" id="subm"/>
+                        </form>
+
+                    </div>
+
+                    <div id="comment-div">
+                        <p id="less-p">Tvoje mišljenje nam mnogo znači! Reci nam šta misliš o lekciji!</p>
+                        <form className="lesson-comment-form">
+                            <textarea name="comment" id="lesson-comment" cols="40" rows="5" required></textarea>
+                            <input type="submit" value="Pošalji" id="lesson-subm"/>
                         </form>
                     </div>
                 </div>

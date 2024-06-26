@@ -92,7 +92,7 @@
     flex: 1;
     padding: 20px;
     border-radius: 8px;
-    margin-left: 220px; /* Adjust based on the width of the sidebar */
+    margin-left: 220px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,6 +107,7 @@
     padding: 20px;
     gap: 20px;
     min-height: 100vh;
+    margin-bottom: 60px;
 }
 
 .lesson-h1 {
@@ -188,4 +189,61 @@
     align-items: center;
     gap: 6px;
     color: #703452;
+}
+
+#comment-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    background-image: linear-gradient(180deg, white, #ffcde8);
+    padding: 40px;
+}
+
+.lesson-comment-form {
+    color: #ffcde8;
+    border-radius: 10px;
+    border: 1px solid #703452;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: start;
+}
+
+.lesson-comment-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.lesson-comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #703452;
+    border-radius: 4px;
+}
+
+#lesson-subm {
+    background-color: #ffcde8;
+    border: 1px solid #703452;
+    color: #703452;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: max-content;
+}
+
+#lesson-subm:hover {
+    background-color: #703452;
+    color: #fff;
+}
+
+#less-p {
+    color: #703452;
+    font-size: 16px;
+    text-align: center;
 }
