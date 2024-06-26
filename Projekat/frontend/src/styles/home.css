@@ -200,3 +200,164 @@
     gap: 6px;
     color: #703452;
 }
+
+
+@media (max-width: 1024px) {
+    #home-nav {
+        height: auto;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    #home-nav ul {
+        padding-top: 10px;
+    }
+
+    #home-nav ul li {
+        margin-top: 5px;
+        margin-right: 8px;
+    }
+
+    #home-ttl-h1 {
+        font-size: 100px;
+    }
+
+    .home-p {
+        font-size: 16px;
+    }
+
+    .cards-home {
+        padding: 50px;
+    }
+
+    .cards-home .ilusimg {
+        width: 150px;
+    }
+
+    .cards-home ol {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cards-home ol li {
+        font-size: 16px;
+    }
+
+    .home-btn {
+        height: 45px;
+        width: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    #home-nav {
+        height: auto;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    #home-nav ul {
+        padding-top: 5px;
+    }
+
+    #home-nav ul li {
+        margin-top: 3px;
+        margin-right: 4px;
+    }
+
+    #home-ttl-h1 {
+        font-size: 80px;
+    }
+
+    .home-p {
+        font-size: 14px;
+    }
+
+    .cards-home {
+        padding: 30px;
+    }
+
+    .cards-home .ilusimg {
+        width: 120px;
+    }
+
+    .cards-home ol {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .cards-home ol li {
+        font-size: 14px;
+    }
+
+    .home-btn {
+        height: 40px;
+        width: 80px;
+    }
+
+    #title-home {
+        height: 60vh;
+    }
+
+    #title-div-home {
+        padding-top: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #home-nav {
+        height: auto;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    #home-nav ul {
+        padding-top: 0;
+    }
+
+    #home-nav ul li {
+        margin-top: 2px;
+        margin-right: 2px;
+    }
+
+    #home-ttl-h1 {
+        font-size: 50px;
+        letter-spacing: 3px;
+    }
+
+    .home-p {
+        font-size: 12px;
+    }
+
+    .cards-home {
+        padding: 20px;
+    }
+
+    .cards-home .ilusimg {
+        width: 100px;
+    }
+
+    .cards-home ol {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .cards-home ol li {
+        font-size: 12px;
+    }
+
+    .home-btn {
+        height: 35px;
+        width: 70px;
+    }
+
+    #title-home {
+        height: 50vh;
+    }
+
+    #title-div-home {
+        padding-top: 10px;
+        text-align: center;
+    }
+}
