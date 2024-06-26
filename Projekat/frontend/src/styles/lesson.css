@@ -271,3 +271,76 @@
     border: 4px solid #a45d83;
     border-radius: 50%;
 }
+
+@media (max-width: 1024px) {
+    .lesson-main {
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    #vertical-menu-outer {
+        /* display: none; */
+        width: 100px;
+    }
+
+    .vertical-menu {
+        /* display: none; */
+        width: 100px;
+    }
+
+    .lesson-content {
+        margin-left: 0;
+        padding-left: 100px;
+        width: 100vw;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .lesson-main {
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    #vertical-menu-outer {
+        /* display: none; */
+        width: 60px;
+    }
+
+    .vertical-menu {
+        /* display: none; */
+        width: 60px;
+        padding: 5px;
+    }
+
+    .lesson-content {
+        margin-left: 0;
+        padding-left: 60px;
+        width: 100vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .lesson-main {
+        flex-direction: column;
+        padding-top: 100px;
+    }
+
+    #vertical-menu-outer {
+        /* display: none; */
+        width: 60px;
+    }
+
+    .vertical-menu {
+        /* display: none; */
+        width: 60px;
+        padding: 5px;
+    }
+
+    .lesson-content {
+        margin-left: 0;
+        padding-left: 80px;
+        width: 100vw;
+    }
+
+}

@@ -24,29 +24,29 @@ const Lesson = () => {
             <div className="lesson-main">
                 <div id="vertical-menu-outer">
                     <div className="vertical-menu">
-                        <Link to="./" className="active">Home</Link>
-                        <Link to="./">Link 1</Link>
-                        <Link to="./">Link 2</Link>
-                        <Link to="./">Link 3</Link>
-                        <Link to="./">Link 4</Link>
-                        <Link to="./">Link 5</Link>
-                        <Link to="./">Link 6</Link>
-                        <Link to="./">Link 7</Link>
-                        <Link to="./">Link 8</Link>
-                        <Link to="./">Link 9</Link>
-                        <Link to="./">Link 10</Link>
-                        <Link to="./">Link 11</Link>
-                        <Link to="./">Link 12</Link>
-                        <Link to="./">Link 13</Link>
-                        <Link to="./">Link 14</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
-                        <Link to="./">Link 15</Link>
+                        <Link to="./" className="active les-link">Neki naziv lekcije</Link>
+                        <Link to="./" className="les-link">Link 1</Link>
+                        <Link to="./" className="les-link">Link 2</Link>
+                        <Link to="./" className="les-link">Link 3</Link>
+                        <Link to="./" className="les-link">Link 4</Link>
+                        <Link to="./" className="les-link">Link 5</Link>
+                        <Link to="./" className="les-link">Link 6</Link>
+                        <Link to="./" className="les-link">Link 7</Link>
+                        <Link to="./" className="les-link">Link 8</Link>
+                        <Link to="./" className="les-link">Link 9</Link>
+                        <Link to="./" className="les-link">Link 10</Link>
+                        <Link to="./" className="les-link">Link 11</Link>
+                        <Link to="./" className="les-link">Link 12</Link>
+                        <Link to="./" className="les-link">Link 13</Link>
+                        <Link to="./" className="les-link">Link 14</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
+                        <Link to="./" className="les-link">Link 15</Link>
                     </div>
                 </div>
 
