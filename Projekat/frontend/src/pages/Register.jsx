@@ -18,20 +18,17 @@ const Register = () => {
                 <div className="big-div-register">
                     <img alt="Welcome" src={register_slike2} id="register-img" />
                     <form className="registration">
-                        <label className="reg-lbl" htmlFor="name">Ime i prezime:</label>
-                        <input id="name-register" name="name" type="text" className="reg-inp" required />
+                        <input id="name-register" name="name" type="text" placeholder="Ime" className="reg-inp" required />
 
-                        <label className="reg-lbl" htmlFor="email">Email:</label>
-                        <input id="email-register" name="email" type="email" className="reg-inp" required />
+                        <input id="surname-register" name="surname" type="text" placeholder="Prezime" className="reg-inp" required />
 
-                        <label className="reg-lbl" htmlFor="username">Korisničko ime:</label>
-                        <input id="username-register" name="username" type="text" className="reg-inp" required />
+                        <input id="email-register" name="email" type="email" placeholder="Email" className="reg-inp" required />
 
-                        <label className="reg-lbl" htmlFor="password">Lozinka:</label>
-                        <input id="password-register" name="password" type="password" className="reg-inp" required />
+                        <input id="username-register" name="username" type="text" placeholder="Korisničko ime" className="reg-inp" required />
 
-                        <label className="reg-lbl" htmlFor="confirme">Potvrdi lozinku:</label>
-                        <input id="confirme-register" name="confirme" type="password" className="reg-inp" required />
+                        <input id="password-register" name="password" type="password" placeholder="Lozinka" className="reg-inp" required />
+
+                        <input id="confirme-register" name="confirme" type="password" placeholder="Potvrdi lozinku" className="reg-inp" required />
 
                         <input type="submit" value="Registruj se" id="sign-in-register" />
                     </form>
