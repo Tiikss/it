@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/course.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import slika_course1 from "../images/lesson1.png";
 import PageNumbers from "./PageNumbers";
+import axios from "axios";
+import { useContext } from "react";
+import { LessonContext } from "../context/lessonContext";
 
 const cards = [
     { id: 1, title: "Lekcija 1", subtitle: "🌍 Earth Explorer", image: slika_course1 },
@@ -28,32 +31,54 @@ const cards = [
 const Course = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const cardsPerPage = 3;
+    // const [lessons, setLessons] = useState(null);    
 
-    // Calculate the indices of the cards to be shown on the current page
+    const {lessons, course} = useContext(LessonContext);
+
+    const location=useLocation();
+    const pathPieces = location.pathname.split("/");
+    const courseName = pathPieces[pathPieces.length - 1];
+    let courseTitle = "";
+    if(courseName === "begginer") {
+        courseTitle = "POČETNI NIVO";
+    } else if(courseName === "intermediate") {
+        courseTitle = "SREDNJI NIVO";
+    } else if(courseName === "advanced") {
+        courseTitle = "NAPREDNI NIVO";
+    }
+
+    useEffect(() => {
+        course(courseName);
+    }, []);
+
+    if(lessons===null){
+        return <h1>Loading...</h1>
+    }
+
     const indexOfLastCard = currentPage * cardsPerPage;
     const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-    const currentCards = cards.slice(indexOfFirstCard, indexOfLastCard);
+    const currentCards = lessons.slice(indexOfFirstCard, indexOfLastCard);
+    console.log(lessons);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div>
             <div className="course-main">
-                <h1 id="course-title">POČETNI NIVO</h1>
+                <h1 id="course-title">{courseTitle}</h1>
 
                 <section id="course-cards">
                     {currentCards.map((card) => (
-                        <Link key={card.id} className="course-link">
+                        <Link key={card.idlesson} className="course-link">
                             <div className="lesson-card">
-                                <img src={card.image} alt={card.title} />
-                                <h3>{card.title}</h3>
-                                <h1>{card.subtitle}</h1>
+                                <img src={card.image} alt={card.name} />
+                                <h3>{card.name}</h3>
                             </div>
                         </Link>
                     ))}
                 </section>
                 <PageNumbers
                     cardsPerPage={cardsPerPage}
-                    totalCards={cards.length}
+                    totalCards={lessons.length}
                     paginate={paginate}
                     currentPage={currentPage}
                 />
