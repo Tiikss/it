@@ -6,17 +6,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import slika_like from "../images/like_icon.png";
 import slika_dislike from "../images/dislike_icon.png";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const Lesson = () => {
+    const { currentUser }=useContext(AuthContext);
+
     return (
         <div className="lesson-container">
             <header id="lesson-header">
                 <nav className="lesson-nav lesson-padding-nav">
                     <img src={lesson_slika1} alt="Logo" id="lesson-logo-img" />
                     <ul>
-                        <li><Link to="/">Početna</Link></li>
+                        <li><Link to="/home">Početna</Link></li>
                         <li><Link to="/about">O nama</Link></li>
-                        <li><Link to="/profile">Nalog</Link></li>
+                        <li><Link to="/profile">✨{currentUser?.username}</Link></li>
                     </ul>
                 </nav>
             </header>

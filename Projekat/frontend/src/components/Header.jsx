@@ -2,16 +2,20 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "../styles/header.css"
 import logo from "../images/logo3.png"
+import { useContext } from "react"
+import { AuthContext } from "../context/authContext"
 
 const Header = () => {
+    const { currentUser }=useContext(AuthContext);
+
     return (
         <header>
             <nav className="nav padding-nav">
                 <img src={logo} alt="Logo" />
                 <ul>
-                    <li><Link to="/">Početna</Link></li>
+                    <li><Link to="/home">Početna</Link></li>
                     <li><Link to="/about">O nama</Link></li>
-                    <li><Link to="/profile">Nalog</Link></li>
+                    <li><Link to="/profile">✨{currentUser?.username}</Link></li>
                 </ul>
             </nav>
         </header>

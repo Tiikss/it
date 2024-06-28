@@ -7,19 +7,22 @@ import "../styles/home.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../context/authContext"
 
 
 const Home = () => {
     const navigate = useNavigate();
+    const { currentUser }=useContext(AuthContext);
 
     return (
         <div className="conteiner-home">
             <header id="home-header">
                 <nav id="home-nav">
                     <ul>
-                        <li><Link to="/">Početna</Link></li>
+                        <li><Link to="/home">Početna</Link></li>
                         <li><Link to="/about">O nama</Link></li>
-                        <li><Link to="/profile">Nalog</Link></li>
+                        <li><Link to="/profile">✨{currentUser?.username}</Link></li>
                     </ul>
                 </nav>
             </header>
