@@ -113,6 +113,11 @@
     transition: all 0.5s ease;
 }
 
+#login-mess {
+    color: red;
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     #content-login {
         flex-direction: column;

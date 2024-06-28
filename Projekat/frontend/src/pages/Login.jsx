@@ -56,7 +56,7 @@ const Login = () => {
 
                         <input type="password" name="password" id="password-login" placeholder="Lozinka" className="login-inp" required onChange={handleChange} />
 
-                        {err && <p>{err}</p>}
+                        {err && <p id="login-mess">{err}</p>}
 
                         <input type="submit" value="Prijavi se" id="subm-login" className="login-inp" onClick={handleSubmit} />
                     </form>
