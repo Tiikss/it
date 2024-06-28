@@ -74,7 +74,6 @@
 @media (max-width: 2570px) {
     .course-main {
         padding: 30px;
-        height: 100vh;
     }
 
     #course-title {
@@ -107,7 +106,6 @@
 @media (max-width: 768px) {
     .course-main {
         padding: 20px;
-        height: 100vh;
     }
 
     #course-title {
