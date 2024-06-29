@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import courseRoutes from './routes/courses.js';
 import lessonRoutes from './routes/lessons.js';
 import questionRoutes from './routes/questions.js';
+import commentRoutes from './routes/comments.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/backend/users', userRoutes);
 app.use('/backend/courses', courseRoutes);
 app.use('/backend/lessons', lessonRoutes);
 app.use('/backend/questions', questionRoutes);
+app.use('/backend/comments', commentRoutes);
 
 app.listen(8800, () => {
     console.log('Connected!');

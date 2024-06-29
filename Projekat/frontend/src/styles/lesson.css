@@ -285,6 +285,11 @@
     margin-bottom: 10px;
 }
 
+#comm-p {
+    color: red;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 1024px) {
     .lesson-main {
         flex-direction: column;

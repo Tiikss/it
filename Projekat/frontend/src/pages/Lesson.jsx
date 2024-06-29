@@ -12,6 +12,7 @@ import { useLocation } from "react-router-dom";
 import { MainLessonContext } from "../context/mainLessonContext";
 import VerticalMenu from "../components/VerticalMenu";
 import { QuestionContext } from "../context/questionContext";
+import { CommentContext } from "../context/commentContext";
 
 
 const Lesson = () => {
@@ -20,12 +21,48 @@ const Lesson = () => {
     const { question, questions } = useContext(QuestionContext);
     const [input, setInput] = useState("");
     const [err, setError]=useState(null);
+    const { comment }=useContext(CommentContext);
+    const [comments, setComments]=useState("");
+    const [like, setLike]=useState("");
+
+    const [errComm, setErrorComm]=useState(null);
+
 
     const handleChange = (e) => {
         setInput(e.target.value);
     }
 
-    console.log(input);
+    const handleCommentChange = (e) => {
+        setComments(e.target.value);
+    }
+
+    const handleLikeChange = (e) => {
+        setLike(e.target.value);
+    }
+
+    let clear=document.getElementById("lesson-comment");
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        if(comments === "" && like === "") {
+            setErrorComm("Morate popuniti polje!");
+            return;
+        }
+
+        try {
+            await comment(lessonName, courseName, [comments, like]);
+        }
+        catch (error) {
+            setErrorComm(error.response.data.message);
+        }
+        finally {
+            setComments("");
+            setLike("");
+            clear.value="";
+            setErrorComm("Komentar je uspešno poslat!")
+        }
+    }
     
     const location=useLocation();
     const pathPieces = location.pathname.split("/");
@@ -104,20 +141,22 @@ const Lesson = () => {
                     <div id="comment-div">
                         <p id="less-p">Tvoje mišljenje nam mnogo znači! Reci nam šta misliš o lekciji!</p>
                         <form className="lesson-comment-form">
-                            <textarea name="comment" id="lesson-comment" cols="40" rows="5" required></textarea>
+                            <textarea name="comment" id="lesson-comment" cols="40" rows="5" required onChange={handleCommentChange}></textarea>
                             <div id="like-div">
                                 <label id="like-lbl">
-                                    <input type="radio" id="like" name="like" value="like" />
+                                    <input type="radio" id="like" name="like" value="like" onChange={handleLikeChange} />
                                     <img src={slika_like} alt="Like" id="like-img" />
                                 </label>
 
                                 <label id="dislike-lbl">
-                                    <input type="radio" id="dislike" name="like" value="dislike" />
+                                    <input type="radio" id="dislike" name="like" value="dislike" onChange={handleLikeChange}/>
                                     <img src={slika_dislike} alt="Dislike" id="dislike-img" />
                                 </label>
                             </div>
 
-                            <input type="submit" value="Pošalji" id="lesson-subm"/>
+                            {errComm && <p id="comm-p">{errComm}</p>}
+
+                            <input type="submit" value="Pošalji" id="lesson-subm" onClick={onSubmit}/>
                         </form>
                     </div>
                 </div>
