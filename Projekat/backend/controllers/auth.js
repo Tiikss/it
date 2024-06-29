@@ -24,7 +24,6 @@ export const register = (req, res) => {
 
         const token=jwt.sign({id: req.body.username}, "jwtkey");
         const {password, confirme, ...other}=req.body;
-        console.log(other);
 
         db.query(q, [values], (err, data) => {
             if(err) return res.status(500).json(err);

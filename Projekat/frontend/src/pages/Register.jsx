@@ -61,7 +61,7 @@ const Register = () => {
                         <img alt="Logo" src={logo} id="logo-img-reg" />
                         <h1 id="h1-reg">Registruj se</h1>
                     </div>
-                    <p id="reg-p-mess">Već imaš nalog? <Link to="/login">Prijavi se ovdje.</Link></p>
+                    <p id="reg-p-mess">Već imaš nalog? <Link to="/">Prijavi se ovdje.</Link></p>
                 </div>
                 <div className="big-div-register">
                     <img alt="Welcome" src={register_slike2} id="register-img" />
