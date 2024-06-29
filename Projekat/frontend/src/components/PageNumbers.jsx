@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/pagenumbers.css'; // Make sure to style the pagination component as needed
+import '../styles/pagenumbers.css';
 
 const Pagination = ({ cardsPerPage, totalCards, paginate, currentPage }) => {
     const pageNumbers = [];
