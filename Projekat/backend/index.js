@@ -3,6 +3,8 @@ import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import cookieParser from 'cookie-parser';
 import courseRoutes from './routes/courses.js';
+import lessonRoutes from './routes/lessons.js';
+import questionRoutes from './routes/questions.js';
 
 const app = express();
 
@@ -12,6 +14,8 @@ app.use(cookieParser());
 app.use('/backend/auth', authRoutes);
 app.use('/backend/users', userRoutes);
 app.use('/backend/courses', courseRoutes);
+app.use('/backend/lessons', lessonRoutes);
+app.use('/backend/questions', questionRoutes);
 
 app.listen(8800, () => {
     console.log('Connected!');
