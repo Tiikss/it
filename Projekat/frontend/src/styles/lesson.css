@@ -280,6 +280,11 @@
     border-radius: 50%;
 }
 
+#ques-p {
+    color: red;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 1024px) {
     .lesson-main {
         flex-direction: column;

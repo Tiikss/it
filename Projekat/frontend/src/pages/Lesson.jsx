@@ -11,24 +11,62 @@ import { AuthContext } from "../context/authContext";
 import { useLocation } from "react-router-dom";
 import { MainLessonContext } from "../context/mainLessonContext";
 import VerticalMenu from "../components/VerticalMenu";
+import { QuestionContext } from "../context/questionContext";
+
 
 const Lesson = () => {
     const { currentUser }=useContext(AuthContext);
-
     const { less, lesson } = useContext(MainLessonContext);
+    const { question, questions } = useContext(QuestionContext);
+    const [input, setInput] = useState("");
+    const [err, setError]=useState(null);
+
+    const handleChange = (e) => {
+        setInput(e.target.value);
+    }
+
+    console.log(input);
     
     const location=useLocation();
     const pathPieces = location.pathname.split("/");
     const courseName = pathPieces[2];
     const lessonName = pathPieces[pathPieces.length - 1];
-
+    
     useEffect(() => {
         lesson(courseName, lessonName);
+        questions(courseName, lessonName);
     }, []);
 
-    if(less===null){
+    if(less===null || question===null){
         return <h1>Loading...</h1>
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if(input === "") {
+            setError("Morate popuniti polje!");
+            return;
+        }
+
+        if(input !== question[lessonName-1].answer) {
+            setError("Odgovor nije tačan. Tačan odgovor je: "+question[lessonName-1].answer);
+            return;
+        }
+
+        if(input === question[lessonName-1].answer) {
+            setError("Odgovor je tačan!");
+            return;
+        }
+
+        try {
+            await questions(input);
+        }
+        catch (error) {
+            setError(error.response.data.message);
+        }
+
+    };
 
     return (
         <div className="lesson-container">
@@ -53,11 +91,12 @@ const Lesson = () => {
                 <div className="lesson-content">
                     <div className="lesson-txt">
                         <h1 className="lesson-h1">{less[0].name}</h1>
-                        <p id="explain">{less[0].content}</p>
+                        <p id="explain" style={{whiteSpace: 'pre-line'}}>{less[0].content}</p>
                         <form className="test">
-                            <label htmlFor="answer1"></label>
-                            <input type="text" name="answer" id="answer1" required/>
-                            <input type="submit" value="Potvrdi" id="subm"/>
+                            <label htmlFor="answer1">{question[lessonName-1].content}</label>
+                            <input type="text" name="answer" id="answer1" required onChange={handleChange}/>
+                            {err && <p id="ques-p">{err}</p>}
+                            <input type="submit" value="Potvrdi" id="subm" onClick={handleSubmit}/>
                         </form>
 
                     </div>
