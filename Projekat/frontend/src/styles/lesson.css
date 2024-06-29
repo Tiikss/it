@@ -248,6 +248,14 @@
     text-align: center;
 }
 
+.lesson-card h3 {
+    color: #703452;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 #like-div {
     display: flex;
     flex-direction: row;
@@ -278,16 +286,6 @@
         padding-top: 100px;
     }
 
-    #vertical-menu-outer {
-        /* display: none; */
-        width: 100px;
-    }
-
-    .vertical-menu {
-        /* display: none; */
-        width: 100px;
-    }
-
     .lesson-content {
         margin-left: 0;
         padding-left: 100px;
@@ -302,17 +300,6 @@
         padding-top: 100px;
     }
 
-    #vertical-menu-outer {
-        /* display: none; */
-        width: 60px;
-    }
-
-    .vertical-menu {
-        /* display: none; */
-        width: 60px;
-        padding: 5px;
-    }
-
     .lesson-content {
         margin-left: 0;
         padding-left: 60px;
@@ -324,17 +311,6 @@
     .lesson-main {
         flex-direction: column;
         padding-top: 100px;
-    }
-
-    #vertical-menu-outer {
-        /* display: none; */
-        width: 60px;
-    }
-
-    .vertical-menu {
-        /* display: none; */
-        width: 60px;
-        padding: 5px;
     }
 
     .lesson-content {

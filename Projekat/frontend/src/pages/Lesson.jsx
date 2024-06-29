@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/lesson.css";
 import lesson_slika1 from "../images/logo3.png";
@@ -8,9 +8,27 @@ import slika_like from "../images/like_icon.png";
 import slika_dislike from "../images/dislike_icon.png";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import { useLocation } from "react-router-dom";
+import { MainLessonContext } from "../context/mainLessonContext";
+import VerticalMenu from "../components/VerticalMenu";
 
 const Lesson = () => {
     const { currentUser }=useContext(AuthContext);
+
+    const { less, lesson } = useContext(MainLessonContext);
+    
+    const location=useLocation();
+    const pathPieces = location.pathname.split("/");
+    const courseName = pathPieces[2];
+    const lessonName = pathPieces[pathPieces.length - 1];
+
+    useEffect(() => {
+        lesson(courseName, lessonName);
+    }, []);
+
+    if(less===null){
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div className="lesson-container">
@@ -26,95 +44,18 @@ const Lesson = () => {
             </header>
 
             <div className="lesson-main">
-                <div id="vertical-menu-outer">
-                    <div className="vertical-menu">
-                        <Link to="./" className="active les-link">Neki naziv lekcije</Link>
-                        <Link to="./" className="les-link">Link 1</Link>
-                        <Link to="./" className="les-link">Link 2</Link>
-                        <Link to="./" className="les-link">Link 3</Link>
-                        <Link to="./" className="les-link">Link 4</Link>
-                        <Link to="./" className="les-link">Link 5</Link>
-                        <Link to="./" className="les-link">Link 6</Link>
-                        <Link to="./" className="les-link">Link 7</Link>
-                        <Link to="./" className="les-link">Link 8</Link>
-                        <Link to="./" className="les-link">Link 9</Link>
-                        <Link to="./" className="les-link">Link 10</Link>
-                        <Link to="./" className="les-link">Link 11</Link>
-                        <Link to="./" className="les-link">Link 12</Link>
-                        <Link to="./" className="les-link">Link 13</Link>
-                        <Link to="./" className="les-link">Link 14</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                        <Link to="./" className="les-link">Link 15</Link>
-                    </div>
-                </div>
+                <VerticalMenu
+                    lessonName={less[0].name}
+                    courseName={courseName}
+                    lessID={less[0].idlesson}
+                />
 
                 <div className="lesson-content">
                     <div className="lesson-txt">
-                        <h1 className="lesson-h1">🌍 Earth Explorer</h1>
-                        <p id="explain">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque consequatur
-                            mollitia porro
-                            ratione
-                            eos non fuga officia cumque natus, dolores voluptatem iure sapiente! Soluta facere cupiditate
-                            quos.
-                            Alias, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, neque
-                            deleniti,
-                            reprehenderit explicabo, nostrum culpa debitis harum minus pariatur quibusdam nulla magnam?
-                            Sunt,
-                            autem.
-                            Ullam voluptatem atque nam architecto mollitia?</p>
+                        <h1 className="lesson-h1">{less[0].name}</h1>
+                        <p id="explain">{less[0].content}</p>
                         <form className="test">
-                            <label htmlFor="answer1">Ovo je neko pitanje na koje neko treba da da neki odgovor koji treba da
-                                bude tacan, hehe...</label>
+                            <label htmlFor="answer1"></label>
                             <input type="text" name="answer" id="answer1" required/>
                             <input type="submit" value="Potvrdi" id="subm"/>
                         </form>
