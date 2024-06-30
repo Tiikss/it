@@ -74,6 +74,11 @@
     color: #703452;
 }
 
+#profile-img {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 #profile-btn {
     margin-top: 10px;
     background-color: #703452;
@@ -88,6 +93,74 @@
 #profile-btn:hover {
     background-color: #ffcde8;
     color: #703452;
+}
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0c0c0c;
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+#modal-div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    color: #703452;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-div label {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#modal-btn {
+    margin-top: 10px;
+    padding: 3px 7px;
+    border-radius: 20px;
+    border-color: #703452;
+    background-color: #703452;
+    color: #ffcde8;
+}
+
+#modal-btn:hover {
+    background-color: #ffcde8;
+    color: #703452;
+}
+
+.close-modal{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 30px;
+    color: #703452;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 
