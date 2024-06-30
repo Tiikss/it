@@ -2,7 +2,6 @@ import {db} from '../db.js';
 
 export const profilepic =  (req, res) => {
     const q='UPDATE users SET img = ? WHERE username = ?';
-    console.log(req.body);
     db.query(q, [req.body.img, req.body.username], (error, result) => {
         if (error) {
             res.status(400).json({message: 'An error occurred while updating the profile picture.'});

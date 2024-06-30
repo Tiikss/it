@@ -7,11 +7,19 @@ import { useContext } from "react"
 import { AuthContext } from "../context/authContext"
 import { useState } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 const Profile = () => {
     const { currentUser, logout, getUser }=useContext(AuthContext);
     const navigate = useNavigate();
     const [file, setFile]=useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const cardsPerPage = 3;
+
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+    // const currentCards = lessons.slice(indexOfFirstCard, indexOfLastCard);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const upload = async () => {
         try {
@@ -89,10 +97,9 @@ const Profile = () => {
                         <img src={slike_profile2} alt="Statistika" />
                         <h3 id="profile-h3">Statistika</h3>
                     </div>
-                    <p id="profile-p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam alias beatae quisquam quo vitae
-                        doloremque, dignissimos libero rem quis voluptatum accusamus, aut repellat reiciendis delectus
-                        totam.
-                        Inventore sint dolorum nam!</p>
+                    <ul id="profile-p">
+                        <li><Link>t</Link></li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -16,8 +16,12 @@ export const QuestionContextProvider = ({ children }) => {
         setQuestion(res.data);
     }
 
+    const addLesson=async(lessonName, username) => {
+        await axios.post(`/questions/${lessonName}/${username}`, {lessonName: lessonName, username: username});
+    }
+
     return (
-        <QuestionContext.Provider value={{courseName, lessonName, question, questions}}>
+        <QuestionContext.Provider value={{courseName, lessonName, question, questions, addLesson}}>
             {children}
         </QuestionContext.Provider>
     );

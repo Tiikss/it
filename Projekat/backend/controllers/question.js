@@ -8,3 +8,12 @@ export const getQuestion = (req, res) => {
         res.status(200).json(data);
     });
 };
+
+export const addLesson = (req, res) => {
+    const q='INSERT INTO lesson_user (idlesson, `username`) VALUES (?)';
+    console.log(req.body.lessonName, req.body.username);
+    db.query(q, [[req.body.lessonName, req.body.username]], (err, data) => {
+        if(err) return res.status(500).json(err);
+        res.status(200).json({message: 'Question added successfully.'});
+    });
+};

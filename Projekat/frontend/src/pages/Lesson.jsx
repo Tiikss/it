@@ -14,11 +14,10 @@ import VerticalMenu from "../components/VerticalMenu";
 import { QuestionContext } from "../context/questionContext";
 import { CommentContext } from "../context/commentContext";
 
-
 const Lesson = () => {
     const { currentUser }=useContext(AuthContext);
     const { less, lesson } = useContext(MainLessonContext);
-    const { question, questions } = useContext(QuestionContext);
+    const { question, questions, addLesson } = useContext(QuestionContext);
     const [input, setInput] = useState("");
     const [err, setError]=useState(null);
     const { comment }=useContext(CommentContext);
@@ -91,13 +90,11 @@ const Lesson = () => {
             return;
         }
 
-        if(input === question[lessonName-1].answer) {
-            setError("Odgovor je tačan!");
-            return;
-        }
+        setError("Odgovor je tačan!");
 
         try {
             await questions(input);
+            await addLesson(lessonName, currentUser.username);
         }
         catch (error) {
             setError(error.response.data.message);

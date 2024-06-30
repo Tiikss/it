@@ -12,7 +12,6 @@ export const CommentContextProvider = ({ children }) => {
     const comment=async(lessonName, courseName, arr) => {
         setLessonName(lessonName);
         setCourseName(courseName);
-        console.log([lessonName, ...arr]);
         const res=await axios.post(`/comments/${courseName}/lesson/${lessonName}`, [lessonName, ...arr]);
     }
 

@@ -9,7 +9,6 @@ export const postComment= (req, res) => {
     else lajk=null;
 
 
-    console.log(req.body[0], req.body[1], lajk);
     db.query(q, [[req.body[0], req.body[1], lajk]], (err, data) => {
         if(err) return res.status(500).json(err);
         res.status(200).json(data);
