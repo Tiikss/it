@@ -69,6 +69,7 @@ const Lesson = () => {
     const lessonName = pathPieces[pathPieces.length - 1];
     
     useEffect(() => {
+        console.log(courseName, lessonName);
         lesson(courseName, lessonName);
         questions(courseName, lessonName);
     }, []);
@@ -101,6 +102,8 @@ const Lesson = () => {
         }
 
     };
+
+    console.log(less);
 
     return (
         <div className="lesson-container">

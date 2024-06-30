@@ -17,3 +17,12 @@ export const addLesson = (req, res) => {
         res.status(200).json({message: 'Question added successfully.'});
     });
 };
+
+export const getDoneLessons = (req, res) => {
+    const q='SELECT * FROM lesson_user lu INNER JOIN lesson l ON l.idlesson=lu.idlesson WHERE username= ?';
+    console.log(req.params.username);
+    db.query(q, [req.params.username], (err, data) => {
+        if(err) return res.status(500).json(err);
+        res.status(200).json(data);
+    });
+};
