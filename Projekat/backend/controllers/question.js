@@ -10,8 +10,8 @@ export const getQuestion = (req, res) => {
 };
 
 export const addLesson = (req, res) => {
-    const q='INSERT INTO lesson_user (idlesson, `username`) VALUES (?)';
-    console.log(req.body.lessonName, req.body.username);
+    const q='INSERT IGNORE INTO lesson_user (idlesson, username) VALUES (?)';
+    
     db.query(q, [[req.body.lessonName, req.body.username]], (err, data) => {
         if(err) return res.status(500).json(err);
         res.status(200).json({message: 'Question added successfully.'});
@@ -20,7 +20,7 @@ export const addLesson = (req, res) => {
 
 export const getDoneLessons = (req, res) => {
     const q='SELECT * FROM lesson_user lu INNER JOIN lesson l ON l.idlesson=lu.idlesson WHERE username= ?';
-    console.log(req.params.username);
+    
     db.query(q, [req.params.username], (err, data) => {
         if(err) return res.status(500).json(err);
         res.status(200).json(data);

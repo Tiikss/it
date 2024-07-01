@@ -6,7 +6,6 @@ export const MainLessonContext = createContext();
 export const MainLessonContextProvider = ({ children }) => {
     const [less, setLesson] = useState(null);
 
-
     const lesson=async(courseName, lessonName) => {
         const res=await axios.get(`/lessons/${courseName}/lesson/${lessonName}`);
         setLesson(res.data);

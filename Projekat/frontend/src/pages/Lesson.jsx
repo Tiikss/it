@@ -67,6 +67,8 @@ const Lesson = () => {
     const pathPieces = location.pathname.split("/");
     const courseName = pathPieces[2];
     const lessonName = pathPieces[pathPieces.length - 1];
+
+    console.log(pathPieces);
     
     useEffect(() => {
         console.log(courseName, lessonName);
@@ -102,8 +104,6 @@ const Lesson = () => {
         }
 
     };
-
-    console.log(less);
 
     return (
         <div className="lesson-container">

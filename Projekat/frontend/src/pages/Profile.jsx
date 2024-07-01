@@ -112,7 +112,7 @@ const Profile = () => {
                     <ul id="profile-p">
                         {currentCards.map((card) => (
                             <li key={card.id}>
-                                <Link to={`/course/${card.courseName}/lesson/${card.idlesson}`}>
+                                <Link to={`/course/${card.course_name}/lesson/${card.idlesson}`}>
                                     <p>{card.name}</p>
                                 </Link>
                             </li>
