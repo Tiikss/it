@@ -113,7 +113,7 @@ const Lesson = () => {
                     <ul>
                         <li><Link to="/home">Početna</Link></li>
                         <li><Link to="/about">O nama</Link></li>
-                        <li><Link to="/profile">✨{currentUser?.username}</Link></li>
+                        <li><Link to={currentUser.is_admin ? "/admin" : "/profile"}>✨{currentUser?.username}</Link></li>
                     </ul>
                 </nav>
             </header>

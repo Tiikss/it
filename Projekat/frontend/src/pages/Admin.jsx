@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import "../styles/admin.css"; 
 import { MainLessonContext } from "../context/mainLessonContext";
+import { AdminContext } from "../context/adminContext";
 
 const handleShowAdd = (e) => {
     const add = document.querySelector(".admin-add");
@@ -19,24 +20,35 @@ const handleShowUpdate = (e) => {
     update.classList.remove('hidden');
 }
 
-
 const Admin = () => {
-    const [value, setValue] = useState("");
+    const [lessonText, setValue] = useState("");
     const { less, allLessons } = useContext(MainLessonContext);
-    const [lesscurr, setLesson] = useState(null);
-
-    useEffect(() => {
-        allLessons();
-    }, []);
+    const [lesscurr, setLesson] = useState("");
+    const { updateLesson } = useContext(AdminContext);
 
     const handleSetLesson = (e) => {
         setLesson(e.target.value);
-        const test = less.filter((lesson) => lesson.name === e.target.value);
-        setValue(test[0].content);
+        let test;
+        if(less) {
+            test = less.filter((lesson) => lesson.name === e.target.value);
+        }
+            
+        if (test){
+            setValue(test[0].content);
+        }
     }
 
+    const handleUpdateLesson = (e) => {
+        e.preventDefault();
+        updateLesson({lessonName: lesscurr, content: lessonText})
+    }
+
+    useEffect(() => {
+        allLessons();
+    },[]);
+
     if(less===null){
-        return <h1>Loading...</h1>
+        return <h1>Loading...</h1>;
     }
 
     return (
@@ -62,12 +74,12 @@ const Admin = () => {
                     className="admin-title"
                 />
                 <div className="editorContainer">
-                    <ReactQuill
+                    {/* <ReactQuill
                         className="editor"
                         theme="snow"
-                        value={value}
+                        value={lessonText}
                         onChange={setValue}
-                    />
+                    /> */}
                 </div>
                 <button className="admin-btn">Dodaj</button>
             </div>
@@ -85,14 +97,15 @@ const Admin = () => {
                     ))}
                 </select>
                 <div className="editorContainer">
-                    <ReactQuill
+                    <textarea 
+                        style={{whiteSpace: 'pre-line'}}
                         className="editor"
-                        theme="snow"
-                        value={value}
-                        onChange={setValue}
+                        value={lessonText}
+                        onChange={(e) => setValue(e.target.value)}
                     />
+
                 </div>
-                <button className="admin-btn">Izmijeni</button>
+                <button className="admin-btn" onClick={handleUpdateLesson}>Izmijeni</button>
             </div>
 
         </main>

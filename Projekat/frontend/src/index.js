@@ -6,6 +6,7 @@ import { LessonContextProvider } from './context/lessonContext';
 import { MainLessonContextProvider } from './context/mainLessonContext';
 import { QuestionContextProvider } from './context/questionContext';
 import { CommentContextProvider } from './context/commentContext';
+import { AdminContextProvider } from './context/adminContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
         <MainLessonContextProvider>
           <QuestionContextProvider>
             <CommentContextProvider>
-              <App />
+              <AdminContextProvider>
+                <App />
+              </AdminContextProvider>
             </CommentContextProvider>
           </QuestionContextProvider>
         </MainLessonContextProvider>

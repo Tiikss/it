@@ -50,6 +50,13 @@
     max-width: 700px;
 }
 
+.editor  {
+    padding: 10px;
+    resize: none;
+    min-width: 700px;
+    min-height: 300px;
+}
+
 .admin-btn {
     margin-top: 20px;
     background-color: #ffcde8;

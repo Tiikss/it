@@ -7,6 +7,7 @@ import lessonRoutes from './routes/lessons.js';
 import questionRoutes from './routes/questions.js';
 import commentRoutes from './routes/comments.js';
 import multer from 'multer';
+import adminRoutes from './routes/admins.js';
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/backend/courses', courseRoutes);
 app.use('/backend/lessons', lessonRoutes);
 app.use('/backend/questions', questionRoutes);
 app.use('/backend/comments', commentRoutes);
+app.use('/backend/admins', adminRoutes);
 
 
 app.listen(8800, () => {
