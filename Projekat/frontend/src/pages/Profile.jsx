@@ -9,7 +9,7 @@ import { useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import { QuestionContext } from "../context/questionContext"
-import PageNumbers from "../components/PageNumbers"
+import PageNumbers from "../components/PageNumbers";
 
 const Profile = () => {
     const { currentUser, logout, getUser }=useContext(AuthContext);
@@ -18,12 +18,12 @@ const Profile = () => {
     const { done, getDoneLessons }=useContext(QuestionContext);  
 
     const [currentPage, setCurrentPage] = useState(1);
-    const cardsPerPage = 10;
-
-    const indexOfLastCard = currentPage * cardsPerPage;
-    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-    const currentCards = done.slice(indexOfFirstCard, indexOfLastCard);
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const linksPerPage = 10;
+    const totalLinks = done.length;
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+    const indexOfLastLink = currentPage * linksPerPage;
+    const indexOfFirstLink = indexOfLastLink - linksPerPage;
+    const currentLinks = done.slice(indexOfFirstLink, indexOfLastLink);
 
     const upload = async () => {
         try {
@@ -107,23 +107,23 @@ const Profile = () => {
                 <div id="profile-statistic">
                     <div id="profile-statistic-title">
                         <img src={slike_profile2} alt="Statistika" />
-                        <h3 id="profile-h3">Statistika</h3>
+                        <h3 id="profile-h3">Odrađene lekcije:</h3>
                     </div>
                     <ul id="profile-p">
-                        {currentCards.map((card) => (
+                        {currentLinks.map((card) => (
                             <li key={card.id}>
                                 <Link to={`/course/${card.course_name}/lesson/${card.idlesson}`}>
-                                    <p>{card.name}</p>
+                                    {card.name}
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                    <PageNumbers>
-                        cardsPerPage={cardsPerPage}
+                    <PageNumbers
+                        cardsPerPage={linksPerPage}
                         totalCards={done.length}
                         paginate={paginate}
                         currentPage={currentPage}
-                    </PageNumbers>
+                    />
                 </div>
             </div>
         </div>

@@ -11,7 +11,6 @@
 
 #profile-info img {
     width: 100px;
-    padding-bottom: 15px;
 }
 
 #profile-info {
@@ -34,6 +33,7 @@
 }
 
 #profile-username {
+    margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
 }
@@ -72,6 +72,15 @@
 
 #profile-p {
     color: #703452;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+#profile-p li {
+    padding-bottom: 5px;
 }
 
 #profile-img {
