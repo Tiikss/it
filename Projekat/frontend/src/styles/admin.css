@@ -110,3 +110,37 @@
     color: #703452;
     text-decoration: none;
 }
+
+#radio-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-radio {
+    display: none;
+}
+
+.admin-radio + label {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #703452;
+    background-color: #f8a8d3;
+    border: 1px solid #703452;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.admin-radio:checked + label {
+    background-color: #703452;
+    color: #fff;
+    border-color: #703452;
+}
+
+.admin-radio + label:hover {
+    background-color: #703452;
+    color: #fff;
+}

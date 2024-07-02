@@ -98,18 +98,26 @@ const Admin = () => {
 
             <div className="admin-add hidden">
                 <h1 className="admin-h1">Dodaj lekciju</h1>
+                <div id="radio-div">
+                    <input type="radio" id="pocetni" name="pocetni" className="admin-radio" />
+                    <label htmlFor="pocetni">Početni nivo</label>
+
+                    <input type="radio" id="srednji" name="srednji" className="admin-radio" />
+                    <label htmlFor="srednji">Srednji nivo</label>
+
+                    <input type="radio" id="napredni" name="napredni" className="admin-radio" />
+                    <label htmlFor="napredni">Napredni nivo</label>
+                </div>
                 <input
                     type="text"
                     placeholder="Naslov lekcije"
                     className="admin-title"
                 />
                 <div className="editorContainer">
-                    {/* <ReactQuill
+                    <textarea
                         className="editor"
-                        theme="snow"
-                        value={lessonText}
-                        onChange={setValue}
-                    /> */}
+                        
+                    />
                 </div>
                 <button className="admin-btn">Dodaj</button>
             </div>
