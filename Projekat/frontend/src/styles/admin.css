@@ -3,7 +3,7 @@
     min-height: 100vh;
 }
 
-.admin-add, .admin-update {
+.admin-add, .admin-update, .admin-delete {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -76,4 +76,37 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     scale: 1.1;
     transition: all 0.5s ease;
+}
+
+#delete-table {
+    border-collapse: collapse;
+}
+
+#delete-table th, #delete-table td {
+    color: #703452;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#delete-table th {
+    background-color: #f8a8d35b;
+    font-weight: bold;
+}
+
+#delete-table div {
+    padding: 8px;
+}
+
+#delete-table td:hover {
+    background-color: #f8a8d325;
+}
+
+#delete-table th, #delete-table td {
+    padding: 12px 15px;
+}
+
+#delete-table a {
+    color: #703452;
+    text-decoration: none;
 }
