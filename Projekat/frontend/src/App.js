@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Course from "./pages/Course";
 import Lesson from "./pages/Lesson";
+import Admin from "./pages/Admin";
 
 const Layout = () => {
   return (
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/course/:id",
         element: <Course />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       }
     ]
   },

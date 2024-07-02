@@ -31,8 +31,11 @@ const Login = () => {
         }
 
         try {
-            await login(input);
-            navigate("/home");
+            const res=await login(input);
+            if(res.is_admin)
+                navigate("/admin");
+            else
+                navigate("/home");
         }
         catch (error) {
             setError(error.response.data.message);

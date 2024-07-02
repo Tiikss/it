@@ -1,0 +1,72 @@
+#admin-body {
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.admin-add, .admin-update {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#admin-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#admin-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.hidden {
+    display: none;
+
+}
+
+.admin-h1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #703452;
+}
+
+.admin-title {
+    font-size: 16px;
+    min-width: 700px;
+    padding: 5px;
+}
+
+.editorContainer {
+    min-width: 700px;
+}
+
+.ql-editor {
+    min-height: 300px;
+    max-width: 700px;
+}
+
+.admin-btn {
+    margin-top: 20px;
+    background-color: #ffcde8;
+    color: #703452;
+    border: 1px solid #a45d830a;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 1;
+    transition: all 0.5s ease;
+    width: max-content;
+    padding: 6px 16px;
+}
+
+.admin-btn:hover {
+    background-color: #703452;
+    color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    scale: 1.1;
+    transition: all 0.5s ease;
+}
