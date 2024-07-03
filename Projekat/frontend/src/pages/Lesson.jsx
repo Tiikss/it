@@ -93,7 +93,7 @@ const Lesson = () => {
             return;
         }
 
-        if(input !== currQuestion[0].answer) {
+        if(input.toLowerCase() !== currQuestion[0].answer.toLowerCase()) {
             setError("Odgovor nije tačan. Tačan odgovor je: "+ currQuestion[0].answer);
             return;
         }
