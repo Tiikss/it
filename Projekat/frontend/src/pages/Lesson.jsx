@@ -67,13 +67,18 @@ const Lesson = () => {
     const pathPieces = location.pathname.split("/");
     const courseName = pathPieces[2];
     const lessonName = pathPieces[pathPieces.length - 1];
-
-    console.log(pathPieces);
     
     useEffect(() => {
-        console.log(courseName, lessonName);
-        lesson(courseName, lessonName);
-        questions(courseName, lessonName);
+        const fetchData = async () => {
+           try{
+                await lesson(courseName, lessonName);
+                await questions(courseName, lessonName);
+           } 
+           catch (error) {
+                console.log(error);
+           }
+        };
+        fetchData();
     }, []);
 
     if(less===null || question===null){
@@ -88,8 +93,8 @@ const Lesson = () => {
             return;
         }
 
-        if(input !== question[lessonName-1].answer) {
-            setError("Odgovor nije tačan. Tačan odgovor je: "+question[lessonName-1].answer);
+        if(input !== currQuestion[0].answer) {
+            setError("Odgovor nije tačan. Tačan odgovor je: "+ currQuestion[0].answer);
             return;
         }
 
@@ -104,6 +109,9 @@ const Lesson = () => {
         }
 
     };
+
+    const currQuestion = question.filter((qus) => qus.idlesson == lessonName);
+    console.log(currQuestion);
 
     return (
         <div className="lesson-container">
@@ -130,7 +138,7 @@ const Lesson = () => {
                         <h1 className="lesson-h1">{less[0].name}</h1>
                         <p id="explain" style={{whiteSpace: 'pre-line'}}>{less[0].content}</p>
                         <form className="test">
-                            <label htmlFor="answer1">{question[lessonName-1].content}</label>
+                            <label htmlFor="answer1">{currQuestion[0].content}</label>
                             <input type="text" name="answer" id="answer1" required onChange={handleChange}/>
                             {err && <p id="ques-p">{err}</p>}
                             <input type="submit" value="Potvrdi" id="subm" onClick={handleSubmit}/>

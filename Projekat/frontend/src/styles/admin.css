@@ -144,3 +144,23 @@
     background-color: #703452;
     color: #fff;
 }
+
+.delete-lesson-btn {
+    border: none;
+    color: #703452;
+    background-color: white;
+}
+
+.delete-lesson-btn:hover {
+    color: #703452;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#type-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

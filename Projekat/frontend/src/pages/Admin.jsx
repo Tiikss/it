@@ -1,19 +1,36 @@
 import React, { useContext, useEffect } from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import "../styles/admin.css"; 
 import { MainLessonContext } from "../context/mainLessonContext";
 import { AdminContext } from "../context/adminContext";
 import { LessonContext } from "../context/lessonContext";
-import { Link } from "react-router-dom";
+import { QuestionContext } from "../context/questionContext";
 
 const Admin = () => {
     const [lessonText, setValue] = useState("");
+    const [questionText, setQuestion] = useState("");
+    const [answer, setAnswer] = useState("");
     const { less, allLessons } = useContext(MainLessonContext);
     const [lesscurr, setLesson] = useState("");
-    const { updateLesson } = useContext(AdminContext);
+    const { updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion } = useContext(AdminContext);
     const { courseName, lessons, course } = useContext(LessonContext);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    const [questionType, setQuestionType] = useState(null);
+    const { question, questions } = useContext(QuestionContext);
+    const [inputs, setInputs] = useState({
+        addLessonTitle: "",
+        addLessonContent: "",
+        addLessonQuestion: "",
+        addLessonAnswer: ""
+    });
+
+    const handleRadioChange = (e) => {
+        setSelectedCourse(e.target.value);
+    }
+
+    useEffect(() => {
+    },[selectedCourse, questionType]);
 
     const handleShowAdd = (e) => {
         const add = document.querySelector(".admin-add");
@@ -42,44 +59,72 @@ const Admin = () => {
         del.classList.remove('hidden');
     }
 
-    const handleSetLesson = (e) => {
+    const handleSetLesson = async (e) => {
+        const selectLesson = document.getElementById('select-lesson');
+        selectLesson.removeChild(selectLesson.firstChild);
         setLesson(e.target.value);
-        let test;
-        if(less) {
-            test = less.filter((lesson) => lesson.name === e.target.value);
-        }
-            
-        if (test){
-            setValue(test[0].content);
-        }
+        const currLesson = less.filter((lesson) => lesson.name === e.target.value);
+        try{
+            const res = await questions(currLesson[0].course_name, e.target.value);
+            const currQuestion = res.filter((ques) => ques.idlesson === currLesson[0].idlesson);
+            setQuestion(currQuestion[0].content)
+            setAnswer(currQuestion[0].answer)
+            setValue(currLesson[0].content);
+        }catch(err){
+            console.log(err);
+        }            
     }
 
     const handleUpdateLesson = (e) => {
         e.preventDefault();
         updateLesson({lessonName: lesscurr, content: lessonText})
+        const tst = less.filter(lesson => lesson.name === lesscurr);
+        updateQuestion({content: questionText, answer: answer, idlesson: tst[0].idlesson});
+
+        const picModal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
+        picModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
     }
 
     useEffect(() => {
         allLessons();
         course(courseName);
-    },[]);
-
-    console.log(less);
+    },[less]);
 
     if(less===null){
         return <h1>Loading...</h1>;
     }
 
-    let cn=''
-    if(courseName==='begginer'){
-        cn='Početni nivo'
+    const handleDelete = (e) => {
+        const lessDel = less.filter(lesson => lesson.name === e.target.textContent);
+        deleteLesson(lessDel[0].idlesson);
     }
-    else if(courseName==='advanced'){
-        cn='Napredni nivo'
+
+    const handleChange = (e) => {
+        setInputs((prev) => ({...prev, [e.target.id]: e.target.value}));
     }
-    else {
-        cn='Srednji nivo'
+
+    const handleAddLesson = async (e) => {
+        const res=await addLesson({lessonName: inputs.addLessonTitle, content: inputs.addLessonContent, courseName: selectedCourse, img: `images/${selectedCourse}.png`});
+        const { insertId, ...other } = res; 
+        await addQuestion({answer: inputs.addLessonAnswer, content: inputs.addLessonQuestion, idlesson: insertId, questionType: questionType})
+
+        const picModal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
+        picModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
     }
+
+    const handleQuestion = (e) => {
+        setQuestionType(e.target.value);
+    }
+
+    const handleModalClose = () => {
+        window.location.reload();
+    };
 
     return (
         <main id="admin-body">
@@ -99,37 +144,63 @@ const Admin = () => {
             <div className="admin-add hidden">
                 <h1 className="admin-h1">Dodaj lekciju</h1>
                 <div id="radio-div">
-                    <input type="radio" id="pocetni" name="pocetni" className="admin-radio" />
-                    <label htmlFor="pocetni">Početni nivo</label>
+                    <input type="radio" id="begginer" value="begginer" name="admin-radio" className="admin-radio" onChange={handleRadioChange} checked={selectedCourse==='begginer'} />
+                    <label htmlFor="begginer">Početni nivo</label>
 
-                    <input type="radio" id="srednji" name="srednji" className="admin-radio" />
-                    <label htmlFor="srednji">Srednji nivo</label>
+                    <input type="radio" id="intermediate" value="intermediate" name="admin-radio" className="admin-radio" onChange={handleRadioChange} checked={selectedCourse==='intermediate'}/>
+                    <label htmlFor="intermediate">Srednji nivo</label>
 
-                    <input type="radio" id="napredni" name="napredni" className="admin-radio" />
-                    <label htmlFor="napredni">Napredni nivo</label>
+                    <input type="radio" id="advanced" value="advanced" name="admin-radio" className="admin-radio" onChange={handleRadioChange} checked={selectedCourse==='advanced'}/>
+                    <label htmlFor="advanced">Napredni nivo</label>
                 </div>
                 <input
                     type="text"
                     placeholder="Naslov lekcije"
                     className="admin-title"
+                    onChange={handleChange}
+                    id="addLessonTitle"
                 />
                 <div className="editorContainer">
                     <textarea
                         className="editor"
-                        
+                        id="addLessonContent"
+                        onChange={handleChange}
                     />
                 </div>
-                <button className="admin-btn">Dodaj</button>
+
+                <input type="text" placeholder="Pitanje" className="admin-title" id="addLessonQuestion" onChange={handleChange}/>
+                <input type="text" placeholder="Odgovor" className="admin-title" id="addLessonAnswer" onChange={handleChange}/>
+                <div id="type-div">
+                    <input type="radio" id="fillinthegap" value="fill in the gap" name="ques-radio" className="admin-radio" onChange={handleQuestion} checked={questionType==='fillinthegap'} />
+                    <label htmlFor="fillinthegap">Popuni praznine</label>
+
+                    <input type="radio" id="truefalse" value="true false" name="ques-radio" className="admin-radio" onChange={handleQuestion} checked={questionType==='truefalse'} />
+                    <label htmlFor="truefalse">Tačno/Netačno</label>
+                </div>
+
+                <button className="admin-btn" onClick={handleAddLesson}>Dodaj</button>
             </div>
+
+            <div id="modal" className="hidden">
+                <button className="close-modal" onClick={handleModalClose}>&times;</button>
+
+                <div id="modal-div">
+                    <p id="modal-title">Uspješno izvršene promjene!</p>
+                </div>
+            </div>
+
+            <div id="overlay" className="hidden" onClick={handleModalClose} ></div>
 
             <div className="admin-update hidden">
                 <h1 className="admin-h1">Izmijeni lekciju</h1>
                 <select
+                    id="select-lesson"
                     name="lesson"
                     type="text"
                     className="admin-title"
                     onChange={handleSetLesson}
                 >
+                    <option selected='selected' value='default'>Izaberite lekciju</option>
                     {less.map((lesson) => ( 
                         <option key={lesson.idlesson} value={lesson.name}>{lesson.name}</option>
                     ))}
@@ -143,6 +214,10 @@ const Admin = () => {
                     />
 
                 </div>
+
+                <input type="text" className="admin-title" id="updateLessonQuestion" value={questionText} onChange={(e) => setQuestion(e.target.value)}/>
+                <input type="text" className="admin-title" id="updateLessonAnswer" value={answer} onChange={(e) => setAnswer(e.target.value)}/>
+
                 <button className="admin-btn" onClick={handleUpdateLesson}>Izmijeni</button>
             </div>
 
@@ -161,27 +236,27 @@ const Admin = () => {
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'begginer').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <Link to={`/course/begginer`}>
+                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
                                             {lesson.name}
-                                        </Link>
+                                        </button>
                                     </div>
                                 ))}
                             </td>
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'intermediate').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <Link to={`/course/intermediate`}>
+                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
                                             {lesson.name}
-                                        </Link>
+                                        </button>
                                     </div>
                                 ))}
                             </td>
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'advanced').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <Link to={`/course/advanced`}>
+                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
                                             {lesson.name}
-                                        </Link>
+                                        </button>
                                     </div>
                                 ))}
                             </td>

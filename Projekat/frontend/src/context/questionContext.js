@@ -14,6 +14,7 @@ export const QuestionContextProvider = ({ children }) => {
         setLessonName(lessonName);
         const res=await axios.get(`/questions/${courseName}/lesson/${lessonName}`);
         setQuestion(res.data);
+        return res.data;
     }
 
     const addLesson=async(lessonName, username) => {
