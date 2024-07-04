@@ -276,12 +276,13 @@
     }
 
     #profile-statistic {
-        padding: 10px;
-        padding-left: 20px;
+        width: 300px;
+        /* padding: 10px; */
+        /* padding-left: 20px; */
     }
 
     #profile-statistic img {
-        width: 30px;
+        /* width: 30px; */
     }
 
     #profile-h3 {

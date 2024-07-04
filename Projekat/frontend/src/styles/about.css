@@ -376,7 +376,7 @@
     }
 
     .wrapper {
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
     }
 
     .wrapper h1 {
@@ -384,12 +384,12 @@
     }
 
     .wrapper li {
-        padding: 0.5rem;
-        width: calc(100% - 0.5rem);
+        /* padding-left: 0.5rem; */
+        /* width: calc(100% - 0.5rem); */
     }
 
     .wrapper li::before {
-        font-size: 1.5rem;
+        /* font-size: 1.5rem; */
     }
 
     #about-cards {
