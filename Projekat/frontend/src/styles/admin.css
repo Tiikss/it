@@ -197,3 +197,72 @@
     border: 4px solid #a45d83;
     border-radius: 50%;
 }
+
+@media (max-width: 768px) {
+    #admin-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .admin-title {
+        min-width: 300px;
+    }
+
+    .editorContainer {
+        min-width: 300px;
+    }
+
+    .ql-editor {
+        max-width: 300px;
+    }
+
+    .editor {
+        min-width: 300px;
+        min-height: 200px;
+    }
+
+    #comm-div {
+        min-width: 300px;
+    }
+
+    #one-comm {
+        min-width: 300px;
+    }
+
+    #delete-table th{
+        display: block;
+        width: 100%;
+    }
+
+    #delete-table td{
+        display: block;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        white-space: normal;
+        text-overflow: ellipsis;
+    }
+
+    #delete-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    #select-lesson {
+        min-width: 100px;
+        font-size: 10px;
+    }
+
+    option {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    #delete-table thead{
+        display: none;
+    }
+}
