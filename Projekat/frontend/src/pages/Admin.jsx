@@ -6,11 +6,14 @@ import { MainLessonContext } from "../context/mainLessonContext";
 import { AdminContext } from "../context/adminContext";
 import { LessonContext } from "../context/lessonContext";
 import { QuestionContext } from "../context/questionContext";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../context/authContext";
 
 const Admin = () => {
     const [lessonText, setValue] = useState("");
     const [questionText, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
+    const [type, setType] = useState("");
     const { less, allLessons } = useContext(MainLessonContext);
     const [lesscurr, setLesson] = useState("");
     const { updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion } = useContext(AdminContext);
@@ -18,6 +21,9 @@ const Admin = () => {
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [questionType, setQuestionType] = useState(null);
     const { question, questions } = useContext(QuestionContext);
+    const navigate = useNavigate();
+    const { logout, getAllUsers }=useContext(AuthContext);
+
     const [inputs, setInputs] = useState({
         addLessonTitle: "",
         addLessonContent: "",
@@ -36,27 +42,44 @@ const Admin = () => {
         const add = document.querySelector(".admin-add");
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
+        const remove = document.querySelector(".delete-user");
         add.classList.remove('hidden');
         update.classList.add('hidden');
         del.classList.add('hidden');
+        remove.classList.add('hidden');
     }
     
     const handleShowUpdate = (e) => {
         const add = document.querySelector(".admin-add");
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
+        const remove = document.querySelector(".delete-user");
         add.classList.add('hidden');
         update.classList.remove('hidden');
         del.classList.add('hidden');
+        remove.classList.add('hidden');
     }
 
     const handleShowDelete = (e) => {
         const add = document.querySelector(".admin-add");
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
+        const remove = document.querySelector(".delete-user");
         add.classList.add('hidden');
         update.classList.add('hidden');
         del.classList.remove('hidden');
+        remove.classList.add('hidden');
+    }
+
+    const handleShowRemoveUser = (e) => {
+        const add = document.querySelector(".admin-add");
+        const update = document.querySelector(".admin-update");
+        const del = document.querySelector(".admin-delete");
+        const remove = document.querySelector(".delete-user");
+        add.classList.add('hidden');
+        update.classList.add('hidden');
+        del.classList.add('hidden');
+        remove.classList.remove('hidden');
     }
 
     const handleSetLesson = async (e) => {
@@ -67,8 +90,9 @@ const Admin = () => {
         try{
             const res = await questions(currLesson[0].course_name, e.target.value);
             const currQuestion = res.filter((ques) => ques.idlesson === currLesson[0].idlesson);
-            setQuestion(currQuestion[0].content)
-            setAnswer(currQuestion[0].answer)
+            setQuestion(currQuestion[0].content);
+            setAnswer(currQuestion[0].answer);
+            setType(currQuestion[0].type_name);
             setValue(currLesson[0].content);
         }catch(err){
             console.log(err);
@@ -79,7 +103,7 @@ const Admin = () => {
         e.preventDefault();
         updateLesson({lessonName: lesscurr, content: lessonText})
         const tst = less.filter(lesson => lesson.name === lesscurr);
-        updateQuestion({content: questionText, answer: answer, idlesson: tst[0].idlesson});
+        updateQuestion({content: questionText, answer: answer, type: type, idlesson: tst[0].idlesson});
 
         const picModal = document.getElementById("modal");
         const overlay = document.getElementById("overlay");
@@ -130,13 +154,15 @@ const Admin = () => {
         <main id="admin-body">
 
             <div id="admin-action">
-                <h1 className="admin-h1">Izaberite akciju</h1>
+                <h1 className="admin-h1">Izaberi akciju</h1>
                 
                 <div id="admin-btns">
                     <button className="admin-btn" onClick={handleShowAdd}>Dodaj lekciju</button>
                     <button className="admin-btn" onClick={handleShowUpdate}>Izmijeni lekciju</button>
                     <button className="admin-btn" onClick={handleShowDelete}>Izbriši lekciju</button>
-                    <button className="admin-btn">Ukloni korisnika</button>
+                    <button className="admin-btn" onClick={handleShowRemoveUser}>Ukloni korisnika</button>
+                    <button className="admin-btn">Vidi reakcije</button>
+                    <button className="admin-btn" onClick={() => {logout(); navigate('/')}}>Odjavi se</button>
                 </div>
 
             </div>
@@ -200,7 +226,7 @@ const Admin = () => {
                     className="admin-title"
                     onChange={handleSetLesson}
                 >
-                    <option selected='selected' value='default'>Izaberite lekciju</option>
+                    <option selected='selected' value='default'>Izaberi lekciju</option>
                     {less.map((lesson) => ( 
                         <option key={lesson.idlesson} value={lesson.name}>{lesson.name}</option>
                     ))}
@@ -217,6 +243,14 @@ const Admin = () => {
 
                 <input type="text" className="admin-title" id="updateLessonQuestion" value={questionText} onChange={(e) => setQuestion(e.target.value)}/>
                 <input type="text" className="admin-title" id="updateLessonAnswer" value={answer} onChange={(e) => setAnswer(e.target.value)}/>
+
+                <div id="type-div">
+                    <input type="radio" id="fillinthegap2" value="fill in the gap" name="ques-radio2" className="admin-radio" onChange={(e) => setType(e.target.value)} checked={type==='fillinthegap'} />
+                    <label htmlFor="fillinthegap2">Popuni praznine</label>
+
+                    <input type="radio" id="truefalse" value="true false" name="ques-radio2" className="admin-radio" onChange={(e) => setType(e.target.value)} checked={type==='truefalse'}/>
+                    <label htmlFor="truefalse2">Tačno/Netačno</label>
+                </div>
 
                 <button className="admin-btn" onClick={handleUpdateLesson}>Izmijeni</button>
             </div>
@@ -263,6 +297,10 @@ const Admin = () => {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div className="delete-user hidden">
+                <h1>Ukloni korisnika</h1>
             </div>
 
         </main>

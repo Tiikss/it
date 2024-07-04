@@ -24,7 +24,7 @@ const Register = () => {
         e.preventDefault();
 
         if (input.password !== input.confirme) {
-            alert("Lozinke se ne poklapaju!");
+            setError("Lozinke se ne poklapaju!");
             return;
         }
 

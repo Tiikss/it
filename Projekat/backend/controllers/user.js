@@ -21,3 +21,14 @@ export const getUser = (req, res) => {
         }
     });
 }
+
+export const getAllUsers = (req, res) => {
+    const q='SELECT * FROM users';
+    db.query(q, (error, result) => {
+        if (error) {
+            res.status(400).json({message: 'An error occurred while fetching the users.'});
+        } else {
+            res.status(200).json(result);
+        }
+    });
+}

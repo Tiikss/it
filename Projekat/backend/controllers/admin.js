@@ -11,7 +11,6 @@ export const updateLesson = (req, res) => {
 
 export const deleteLesson = (req, res) => {
     const q='DELETE FROM lesson WHERE idlesson = ?';
-    console.log(req.params.idlesson);
     db.query(q, [req.params.idlesson], (err, data) => {
         if(err) return res.status(500).json(err);
         res.status(200).json(data);
@@ -36,10 +35,9 @@ export const addQuestion = (req, res) => {
 };
 
 export const updateQuestion = (req, res) => {
-    const q='UPDATE question SET content = ?, answer = ? WHERE idlesson = ?';
-    console.log(req.body);
+    const q='UPDATE question SET content = ?, answer = ?, type_name = ? WHERE idlesson = ?';
     
-    db.query(q, [req.body.content, req.body.answer, req.body.idlesson], (err, data) => {
+    db.query(q, [req.body.content, req.body.answer, req.body.type, req.body.idlesson], (err, data) => {
         if(err) return res.status(500).json(err);
         res.status(200).json(data);
     });
