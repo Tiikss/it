@@ -8,6 +8,9 @@ import { LessonContext } from "../context/lessonContext";
 import { QuestionContext } from "../context/questionContext";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/authContext";
+import { CommentContext } from "../context/commentContext";
+import slika_like from "../images/like_icon.png";
+import slika_dislike from "../images/dislike_icon.png";
 
 const Admin = () => {
     const [lessonText, setValue] = useState("");
@@ -23,6 +26,7 @@ const Admin = () => {
     const { question, questions } = useContext(QuestionContext);
     const navigate = useNavigate();
     const { logout, allUsers, getAllUsers }=useContext(AuthContext);
+    const { comm, getComments } = useContext(CommentContext);
 
     const [inputs, setInputs] = useState({
         addLessonTitle: "",
@@ -39,15 +43,26 @@ const Admin = () => {
         getAllUsers();
     },[allUsers]);
 
+    useEffect(() => {
+        if(less){
+            const currLesson = less.filter((lesson) => lesson.name === lesscurr);
+            if(lesscurr !== ""){
+                getComments(currLesson[0].idlesson);
+            }
+        }
+    },[lesscurr]);
+
     const handleShowAdd = (e) => {
         const add = document.querySelector(".admin-add");
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
         const remove = document.querySelector(".delete-user");
+        const react = document.querySelector(".admin-reactions");
         add.classList.remove('hidden');
         update.classList.add('hidden');
         del.classList.add('hidden');
         remove.classList.add('hidden');
+        react.classList.add('hidden');
     }
     
     const handleShowUpdate = (e) => {
@@ -55,10 +70,12 @@ const Admin = () => {
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
         const remove = document.querySelector(".delete-user");
+        const react = document.querySelector(".admin-reactions");
         add.classList.add('hidden');
         update.classList.remove('hidden');
         del.classList.add('hidden');
         remove.classList.add('hidden');
+        react.classList.add('hidden');
     }
 
     const handleShowDelete = (e) => {
@@ -66,10 +83,12 @@ const Admin = () => {
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
         const remove = document.querySelector(".delete-user");
+        const react = document.querySelector(".admin-reactions");
         add.classList.add('hidden');
         update.classList.add('hidden');
         del.classList.remove('hidden');
         remove.classList.add('hidden');
+        react.classList.add('hidden');
     }
 
     const handleShowRemoveUser = async (e) => {
@@ -77,11 +96,26 @@ const Admin = () => {
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
         const remove = document.querySelector(".delete-user");
+        const react = document.querySelector(".admin-reactions");
         add.classList.add('hidden');
         update.classList.add('hidden');
         del.classList.add('hidden');
         remove.classList.remove('hidden');
+        react.classList.add('hidden');
         await getAllUsers();
+    }
+
+    const handleShowReactions = (e) => {
+        const add = document.querySelector(".admin-add");
+        const update = document.querySelector(".admin-update");
+        const del = document.querySelector(".admin-delete");
+        const remove = document.querySelector(".delete-user");
+        const react = document.querySelector(".admin-reactions");
+        add.classList.add('hidden');
+        update.classList.add('hidden');
+        del.classList.add('hidden');
+        remove.classList.add('hidden');
+        react.classList.remove('hidden');
     }
 
     const handleSetLesson = async (e) => {
@@ -168,7 +202,7 @@ const Admin = () => {
                     <button className="admin-btn" onClick={handleShowUpdate}>Izmijeni lekciju</button>
                     <button className="admin-btn" onClick={handleShowDelete}>Izbriši lekciju</button>
                     <button className="admin-btn" onClick={handleShowRemoveUser}>Ukloni korisnika</button>
-                    <button className="admin-btn">Vidi reakcije</button>
+                    <button className="admin-btn" onClick={handleShowReactions}>Vidi reakcije</button>
                     <button className="admin-btn" onClick={() => {logout(); navigate('/')}}>Odjavi se</button>
                 </div>
 
@@ -332,6 +366,31 @@ const Admin = () => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+
+            <div className="admin-reactions hidden">
+                <h1 className="admin-h1">Vidi reakcije</h1>
+                <select
+                    id="select-lesson"
+                    name="lesson"
+                    type="text"
+                    className="admin-title"
+                    onChange={handleSetLesson}
+                >
+                    <option selected='selected' value='default'>Izaberi lekciju</option>
+                    {less.map((lesson) => ( 
+                        <option key={lesson.idlesson} value={lesson.name}>{lesson.name}</option>
+                    ))}
+                </select>
+                <div id="comm-div">
+                    {lesscurr !== "" && comm !== null ? (comm.map((comment) => (
+                        <div key={comment.idcomment}>
+                            <div id="one-comm">
+                                <p>{comment.desc}</p> <p>{comment.like=='1' ? <img src={slika_like} alt="Like" className="likedislike" /> : <img src={slika_dislike} alt="Dislike" className="likedislike" />}</p>
+                            </div>
+                        </div>
+                    ))) : null}
+                </div>
             </div>
 
         </main>
