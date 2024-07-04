@@ -16,13 +16,13 @@ const Admin = () => {
     const [type, setType] = useState("");
     const { less, allLessons } = useContext(MainLessonContext);
     const [lesscurr, setLesson] = useState("");
-    const { updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion } = useContext(AdminContext);
+    const { updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion, deleteUser } = useContext(AdminContext);
     const { courseName, lessons, course } = useContext(LessonContext);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [questionType, setQuestionType] = useState(null);
     const { question, questions } = useContext(QuestionContext);
     const navigate = useNavigate();
-    const { logout, getAllUsers }=useContext(AuthContext);
+    const { logout, allUsers, getAllUsers }=useContext(AuthContext);
 
     const [inputs, setInputs] = useState({
         addLessonTitle: "",
@@ -36,7 +36,8 @@ const Admin = () => {
     }
 
     useEffect(() => {
-    },[selectedCourse, questionType]);
+        getAllUsers();
+    },[allUsers]);
 
     const handleShowAdd = (e) => {
         const add = document.querySelector(".admin-add");
@@ -71,7 +72,7 @@ const Admin = () => {
         remove.classList.add('hidden');
     }
 
-    const handleShowRemoveUser = (e) => {
+    const handleShowRemoveUser = async (e) => {
         const add = document.querySelector(".admin-add");
         const update = document.querySelector(".admin-update");
         const del = document.querySelector(".admin-delete");
@@ -80,6 +81,7 @@ const Admin = () => {
         update.classList.add('hidden');
         del.classList.add('hidden');
         remove.classList.remove('hidden');
+        await getAllUsers();
     }
 
     const handleSetLesson = async (e) => {
@@ -124,6 +126,11 @@ const Admin = () => {
     const handleDelete = (e) => {
         const lessDel = less.filter(lesson => lesson.name === e.target.textContent);
         deleteLesson(lessDel[0].idlesson);
+    }
+
+    const handleDeleteUser = (e) => {
+        const userDel = allUsers.filter(user => user.username === e.target.textContent);
+        deleteUser(userDel[0].username);
     }
 
     const handleChange = (e) => {
@@ -300,7 +307,31 @@ const Admin = () => {
             </div>
 
             <div className="delete-user hidden">
-                <h1>Ukloni korisnika</h1>
+                <h1 className="admin-h1">Ukloni korisnika</h1>
+                <table id="delete-table">
+                    <thead>
+                        <tr>
+                            <th>Korisničko ime</th>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {allUsers.map((user) => (
+                            <tr key={user.iduser}>
+                                <td>
+                                    <button className="delete-lesson-btn" onClick={(e) => handleDeleteUser(e)}>
+                                        {user.username}
+                                    </button>
+                                </td>
+                                <td>{user.name}</td>
+                                <td>{user.surname}</td>
+                                <td>{user.email}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
 
         </main>

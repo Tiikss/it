@@ -3,7 +3,7 @@
     min-height: 100vh;
 }
 
-.admin-add, .admin-update, .admin-delete {
+.admin-add, .admin-update, .admin-delete, .delete-user {
     margin-top: 30px;
     display: flex;
     flex-direction: column;

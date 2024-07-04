@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
+    const [allUsers, setUsers] = useState([]);
 
     const login=async(input) => {
         const res=await axios.post("/auth/login", input);
@@ -20,7 +21,7 @@ export const AuthContextProvider = ({children}) => {
 
     const getAllUsers=async() => {
         const res=await axios.get("/users");
-        return res.data;
+        setUsers(res.data);
     }
 
     const register=async(input) => {
@@ -38,7 +39,7 @@ export const AuthContextProvider = ({children}) => {
     }, [currentUser]);
 
     return (
-        <AuthContext.Provider value={{currentUser, login, register, logout, getUser, getAllUsers}}>
+        <AuthContext.Provider value={{currentUser, login, register, logout, getUser, allUsers, getAllUsers}}>
             {children}
         </AuthContext.Provider>
     )

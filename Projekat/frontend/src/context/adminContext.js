@@ -29,8 +29,12 @@ export const AdminContextProvider = ({ children }) => {
         return res.data;
     }
 
+    const deleteUser=async(input) => {
+        const res=await axios.delete(`/admins/deleteUser/${input}`);
+    }
+
     return (
-        <AdminContext.Provider value={{updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion}}>
+        <AdminContext.Provider value={{updateLesson, deleteLesson, addLesson, addQuestion, updateQuestion, deleteUser}}>
             {children}
         </AdminContext.Provider>
     );

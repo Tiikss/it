@@ -42,3 +42,11 @@ export const updateQuestion = (req, res) => {
         res.status(200).json(data);
     });
 };
+
+export const deleteUser = (req, res) => {
+    const q='DELETE FROM users WHERE username = ?';
+    db.query(q, [req.params.username], (err, data) => {
+        if(err) return res.status(500).json(err);
+        res.status(200).json(data);
+    });
+}
