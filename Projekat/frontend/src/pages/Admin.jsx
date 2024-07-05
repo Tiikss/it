@@ -27,6 +27,8 @@ const Admin = () => {
     const navigate = useNavigate();
     const { logout, allUsers, getAllUsers }=useContext(AuthContext);
     const { comm, getComments } = useContext(CommentContext);
+    const [choosenLesson, setChoosenLesson] = useState("");
+    const [choosenUser, setChoosenUser] = useState("");
 
     const [inputs, setInputs] = useState({
         addLessonTitle: "",
@@ -157,13 +159,15 @@ const Admin = () => {
         return <h1>Loading...</h1>;
     }
 
-    const handleDelete = (e) => {
-        const lessDel = less.filter(lesson => lesson.name === e.target.textContent);
+    const handleDelete = () => {
+        const lessDel = less.filter(lesson => lesson.name === choosenLesson);
         deleteLesson(lessDel[0].idlesson);
     }
 
-    const handleDeleteUser = (e) => {
-        const userDel = allUsers.filter(user => user.username === e.target.textContent);
+    const handleDeleteUser = () => {
+        const userDel = allUsers.filter(user => user.username === choosenUser);
+        console.log(choosenUser)
+        console.log(userDel)
         deleteUser(userDel[0].username);
     }
 
@@ -183,6 +187,24 @@ const Admin = () => {
         document.body.style.overflow = "hidden";
     }
 
+    const showModal = (e) => {
+        const picModal = document.getElementById("modal2");
+        const overlay = document.getElementById("overlay2");
+        picModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        setChoosenLesson(e.target.textContent);
+    }
+
+    const showModal2 = (e) => {
+        const picModal = document.getElementById("modal3");
+        const overlay = document.getElementById("overlay3");
+        picModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+       setChoosenUser(e.target.textContent);
+    }
+
     const handleQuestion = (e) => {
         setQuestionType(e.target.value);
     }
@@ -190,6 +212,22 @@ const Admin = () => {
     const handleModalClose = () => {
         window.location.reload();
     };
+
+    const closeModal2 = () => {
+        const picModal = document.getElementById("modal2");
+        const overlay = document.getElementById("overlay2");
+        picModal.classList.add("hidden");
+        overlay.classList.add("hidden");
+        document.body.style.overflowY = "scroll";
+    }
+
+    const closeModal3 = () => {
+        const picModal = document.getElementById("modal3");
+        const overlay = document.getElementById("overlay3");
+        picModal.classList.add("hidden");
+        overlay.classList.add("hidden");
+        document.body.style.overflowY = "scroll";
+    }
 
     return (
         <main id="admin-body">
@@ -296,6 +334,17 @@ const Admin = () => {
                 <button className="admin-btn" onClick={handleUpdateLesson}>Izmijeni</button>
             </div>
 
+            <div id="modal2" className="hidden">
+                <button className="close-modal2" onClick={closeModal2}>&times;</button>
+
+                <div id="modal-div2">
+                    <p id="modal-title2">Da li ste sigurni da želite da obrišete?</p>
+                    <button id="modal-btn" onClick={handleDelete}>Potvrdi</button>
+                </div>
+            </div>
+
+            <div id="overlay2" className="hidden" onClick={closeModal2} ></div>
+
             <div className="admin-delete hidden">
                 <h1 className="admin-h1">Izbriši lekciju</h1>
                 <table id="delete-table">
@@ -311,7 +360,7 @@ const Admin = () => {
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'begginer').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
+                                        <button className="delete-lesson-btn" onClick={(e) => showModal(e)}>
                                             {lesson.name}
                                         </button>
                                     </div>
@@ -320,7 +369,7 @@ const Admin = () => {
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'intermediate').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
+                                        <button className="delete-lesson-btn" onClick={(e) => showModal(e)}>
                                             {lesson.name}
                                         </button>
                                     </div>
@@ -329,7 +378,7 @@ const Admin = () => {
                             <td>
                                 {less.filter(lesson => lesson.course_name === 'advanced').map(lesson => (
                                     <div key={lesson.idlesson}>
-                                        <button className="delete-lesson-btn" onClick={(e) => handleDelete(e)}>
+                                        <button className="delete-lesson-btn" onClick={(e) => showModal(e)}>
                                             {lesson.name}
                                         </button>
                                     </div>
@@ -339,6 +388,17 @@ const Admin = () => {
                     </tbody>
                 </table>
             </div>
+
+            <div id="modal3" className="hidden">
+                <button className="close-modal3" onClick={closeModal3}>&times;</button>
+
+                <div id="modal-div3">
+                    <p id="modal-title3">Da li ste sigurni da želite da obrišete korisnika?</p>
+                    <button id="modal-btn" onClick={handleDeleteUser}>Potvrdi</button>
+                </div>
+            </div>
+
+            <div id="overlay3" className="hidden" onClick={closeModal3} ></div>
 
             <div className="delete-user hidden">
                 <h1 className="admin-h1">Ukloni korisnika</h1>
@@ -355,7 +415,7 @@ const Admin = () => {
                         {allUsers.map((user) => (
                             <tr key={user.iduser}>
                                 <td>
-                                    <button className="delete-lesson-btn" onClick={(e) => handleDeleteUser(e)}>
+                                    <button className="delete-lesson-btn" onClick={(e) => showModal2(e)}>
                                         {user.username}
                                     </button>
                                 </td>
