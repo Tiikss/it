@@ -40,7 +40,7 @@ const Home = () => {
             }
         };
         fetchLessons();
-    },[filterText]);
+    },[filterText, selectedRadio]);
 
     return (
         <div className="conteiner-home">
