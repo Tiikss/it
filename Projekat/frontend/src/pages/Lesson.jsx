@@ -152,12 +152,12 @@ const Lesson = () => {
                             <textarea name="comment" id="lesson-comment" cols="40" rows="5" required onChange={handleCommentChange}></textarea>
                             <div id="like-div">
                                 <label id="like-lbl">
-                                    <input type="radio" id="like" name="like" value="like" onChange={handleLikeChange} />
+                                    <input className="radio-less" type="radio" id="like" name="like" value="like" onChange={handleLikeChange} />
                                     <img src={slika_like} alt="Like" id="like-img" />
                                 </label>
 
                                 <label id="dislike-lbl">
-                                    <input type="radio" id="dislike" name="like" value="dislike" onChange={handleLikeChange}/>
+                                    <input className="radio-less" type="radio" id="dislike" name="like" value="dislike" onChange={handleLikeChange}/>
                                     <img src={slika_dislike} alt="Dislike" id="dislike-img" />
                                 </label>
                             </div>

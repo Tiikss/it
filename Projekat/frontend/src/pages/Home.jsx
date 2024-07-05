@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import home_slika1 from "../images/sportsman.png"
 import home_slika2 from "../images/adult.png"
@@ -9,11 +9,38 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "../context/authContext"
+import axios from "axios"
 
 
 const Home = () => {
     const navigate = useNavigate();
     const { currentUser }=useContext(AuthContext);
+    const [filterLessons, setFilterLessons]=useState(null);
+    const [filterText, setFilterText]=useState("");
+    const [selectedRadio, setSelectedRadio]=useState("begginer");
+
+    const handleFilterChange=(e) => {
+        setFilterText(e.target.value);
+    };
+
+    const handleRadioSelect=(e) => {
+        setSelectedRadio(e.target.value);
+    };
+
+    useEffect(() => {
+        const fetchLessons=async() => {
+            try {
+                console.log(selectedRadio);
+                const res = await axios.get(`/lessons/getLessonsSearch?search=${filterText}&course=${selectedRadio}`);
+                setFilterLessons(res.data);
+                console.log(res.data);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        };
+        fetchLessons();
+    },[filterText]);
 
     return (
         <div className="conteiner-home">
@@ -32,6 +59,35 @@ const Home = () => {
                 <div id="title-home">
                     <div id="title-div-home">
                         <h1 id="home-ttl-h1">Lingua Franca</h1>
+                    </div>
+                </div>
+
+                <div id="searching-div">
+                    <div id="radio-home-div">
+                        <div className="radio-div">
+                            <input type="radio" name="radio-btn" id="beginner" value="begginer" className="radio-btn-home" onChange={handleRadioSelect}/>
+                            <label htmlFor="beginner">Početni nivo</label> 
+                        </div>
+
+                        <div className="radio-div">
+                            <input type="radio" name="radio-btn" id="intermediate" value="intermediate" className="radio-btn-home" onChange={handleRadioSelect}/>
+                            <label htmlor="intermediate">Srednji nivo</label> 
+                        </div>
+
+                        <div className="radio-div">
+                            <input type="radio" name="radio-btn" id="advanced" value="advanced" className="radio-btn-home" onChange={handleRadioSelect}/>
+                            <label htmlFor="advanced">Napredni nivo</label>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <input type="text" id="search" placeholder="🔍 Pretraži lekcije..." onChange={handleFilterChange} style={filterText==="" || filterLessons.length===0 ? {borderRadius: "20px"} : {borderRadius: "20px 20px 0 0"}} />
+                        <div id="opadajuci-meni" style={filterText==="" || filterLessons.length===0 ? null : {borderRadius: "0 0 20px 20px"}}>
+                            {filterLessons && filterLessons.map((lesson) => {
+                                return (
+                                    <Link className="kartica-opadajuceg-menija" to={`/course/${lesson.course_name}/lesson/${lesson.idlesson}`}>{lesson.name}</Link>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
 
