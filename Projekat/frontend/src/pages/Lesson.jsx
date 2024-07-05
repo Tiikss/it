@@ -111,7 +111,6 @@ const Lesson = () => {
     };
 
     const currQuestion = question.filter((qus) => qus.idlesson == lessonName);
-    console.log(currQuestion);
 
     return (
         <div className="lesson-container">

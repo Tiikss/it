@@ -29,6 +29,8 @@ const Admin = () => {
     const { comm, getComments } = useContext(CommentContext);
     const [choosenLesson, setChoosenLesson] = useState("");
     const [choosenUser, setChoosenUser] = useState("");
+    const [chooseLessonDel, setChooseLessonDel] = useState(false);
+    const [chooseCommentDel, setChooseCommentDel] = useState(false);
 
     const [inputs, setInputs] = useState({
         addLessonTitle: "",
@@ -121,8 +123,16 @@ const Admin = () => {
     }
 
     const handleSetLesson = async (e) => {
-        const selectLesson = document.getElementById('select-lesson');
-        selectLesson.removeChild(selectLesson.firstChild);
+        if(e.target.id==="select-lesson" && chooseLessonDel===false){
+            const selectLesson = document.getElementById('select-lesson');
+            selectLesson.removeChild(selectLesson.firstChild);
+            setChooseLessonDel(true);
+        }
+        else if (e.target.id==="select-lesson2" && chooseCommentDel===false){
+            const selectLesson2 = document.getElementById('select-lesson2');
+            selectLesson2.removeChild(selectLesson2.firstChild);
+            setChooseCommentDel(true);
+        }
         setLesson(e.target.value);
         const currLesson = less.filter((lesson) => lesson.name === e.target.value);
         try{
@@ -166,8 +176,6 @@ const Admin = () => {
 
     const handleDeleteUser = () => {
         const userDel = allUsers.filter(user => user.username === choosenUser);
-        console.log(choosenUser)
-        console.log(userDel)
         deleteUser(userDel[0].username);
     }
 
@@ -202,7 +210,7 @@ const Admin = () => {
         picModal.classList.remove("hidden");
         overlay.classList.remove("hidden");
         document.body.style.overflow = "hidden";
-       setChoosenUser(e.target.textContent);
+        setChoosenUser(e.target.textContent);
     }
 
     const handleQuestion = (e) => {
@@ -431,7 +439,7 @@ const Admin = () => {
             <div className="admin-reactions hidden">
                 <h1 className="admin-h1">Vidi reakcije</h1>
                 <select
-                    id="select-lesson"
+                    id="select-lesson2"
                     name="lesson"
                     type="text"
                     className="admin-title"

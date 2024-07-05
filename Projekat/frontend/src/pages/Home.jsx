@@ -30,7 +30,6 @@ const Home = () => {
     useEffect(() => {
         const fetchLessons=async() => {
             try {
-                console.log(selectedRadio);
                 const res = await axios.get(`/lessons/getLessonsSearch?search=${filterText}&course=${selectedRadio}`);
                 setFilterLessons(res.data);
             }
