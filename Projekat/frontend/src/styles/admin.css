@@ -29,6 +29,134 @@
 
 }
 
+#overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+#modal2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0c0c0c;
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+#modal-div2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #703452;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-div2 label {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#modal-btn2 {
+    margin-top: 10px;
+    padding: 3px 7px;
+    border-radius: 20px;
+    border-color: #703452;
+    background-color: #703452;
+    color: #ffcde8;
+}
+
+#modal-btn2:hover {
+    background-color: #ffcde8;
+    color: #703452;
+}
+
+.close-modal2{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 30px;
+    color: #703452;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+#overlay3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+#modal3 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0c0c0c;
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+#modal-div3 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #703452;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-div3 label {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#modal-btn3 {
+    margin-top: 10px;
+    padding: 3px 7px;
+    border-radius: 20px;
+    border-color: #703452;
+    background-color: #703452;
+    color: #ffcde8;
+}
+
+#modal-btn3:hover {
+    background-color: #ffcde8;
+    color: #703452;
+}
+
+.close-modal3{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 30px;
+    color: #703452;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
 .admin-h1 {
     margin-top: 10px;
     margin-bottom: 20px;

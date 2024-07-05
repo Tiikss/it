@@ -33,7 +33,6 @@ const Home = () => {
                 console.log(selectedRadio);
                 const res = await axios.get(`/lessons/getLessonsSearch?search=${filterText}&course=${selectedRadio}`);
                 setFilterLessons(res.data);
-                console.log(res.data);
             }
             catch (error) {
                 console.error(error);
