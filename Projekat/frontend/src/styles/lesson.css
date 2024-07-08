@@ -290,6 +290,23 @@
     margin-bottom: 10px;
 }
 
+#btnAnswer {
+    background-color: #7034523d;
+    border: 1px solid #703452;
+    color: #703452;
+    border-radius: 50px;
+    cursor: pointer;
+    width: max-content;
+    font-size: 12px;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+#btnAnswer:hover {
+    background-color: #ffcde8;
+    color: #703452;
+}
+
 @media (max-width: 1024px) {
     .lesson-main {
         flex-direction: column;

@@ -94,7 +94,7 @@ const Lesson = () => {
         }
 
         if(input.toLowerCase() !== currQuestion[0].answer.toLowerCase()) {
-            setError("Odgovor nije tačan. Tačan odgovor je: "+ currQuestion[0].answer);
+            setError("Odgovor nije tačan.");
             return;
         }
 
@@ -109,6 +109,13 @@ const Lesson = () => {
         }
 
     };
+
+    const showAnswer = (e) => {
+        e.preventDefault();
+        setError("Tačan odgovor je: " + currQuestion[0].answer);
+        const pom=document.getElementById("btnAnswer");
+        pom.style.display="none";
+    }
 
     const currQuestion = question.filter((qus) => qus.idlesson == lessonName);
 
@@ -139,7 +146,7 @@ const Lesson = () => {
                         <form className="test">
                             <label htmlFor="answer1">{currQuestion[0].content}</label>
                             <input type="text" name="answer" id="answer1" required onChange={handleChange}/>
-                            {err && <p id="ques-p">{err}</p>}
+                            {err && <p id="ques-p">{err}<button id="btnAnswer" onClick={(e) => showAnswer(e)}>Vidi tačan odgovor.</button></p>}
                             <input type="submit" value="Potvrdi" id="subm" onClick={handleSubmit}/>
                         </form>
 
