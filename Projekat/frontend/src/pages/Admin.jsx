@@ -172,11 +172,13 @@ const Admin = () => {
     const handleDelete = () => {
         const lessDel = less.filter(lesson => lesson.name === choosenLesson);
         deleteLesson(lessDel[0].idlesson);
+        closeModal2();
     }
 
     const handleDeleteUser = () => {
         const userDel = allUsers.filter(user => user.username === choosenUser);
         deleteUser(userDel[0].username);
+        closeModal3();
     }
 
     const handleChange = (e) => {
@@ -346,7 +348,7 @@ const Admin = () => {
                 <button className="close-modal2" onClick={closeModal2}>&times;</button>
 
                 <div id="modal-div2">
-                    <p id="modal-title2">Da li ste sigurni da želite da obrišete?</p>
+                    <p id="modal-title2">Da li ste sigurni da želite da obrišete lekciju?</p>
                     <button id="modal-btn" onClick={handleDelete}>Potvrdi</button>
                 </div>
             </div>
