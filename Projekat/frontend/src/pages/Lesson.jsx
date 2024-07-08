@@ -59,7 +59,7 @@ const Lesson = () => {
             setComments("");
             setLike("");
             clear.value="";
-            setErrorComm("Komentar je uspešno poslat!")
+            setErrorComm("Komentar je uspješno poslat!")
         }
     }
     
@@ -85,20 +85,24 @@ const Lesson = () => {
         return <h1>Loading...</h1>
     }
 
+    let usao=false;
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if(input === "") {
             setError("Morate popuniti polje!");
+            usao=true;
             return;
         }
 
         if(input.toLowerCase() !== currQuestion[0].answer.toLowerCase()) {
             setError("Odgovor nije tačan.");
+            document.getElementById("btnAnswer").style.display="inline-block";
             return;
         }
 
         setError("Odgovor je tačan!");
+        document.getElementById("btnAnswer").style.display="none";
 
         try {
             await questions(input);
@@ -146,7 +150,9 @@ const Lesson = () => {
                         <form className="test">
                             <label htmlFor="answer1">{currQuestion[0].content}</label>
                             <input type="text" name="answer" id="answer1" required onChange={handleChange}/>
-                            {err && <p id="ques-p">{err}<button id="btnAnswer" onClick={(e) => showAnswer(e)}>Vidi tačan odgovor.</button></p>}
+
+                            <p id="ques-p">{err}<button id="btnAnswer" style={{display: "none"}} onClick={(e) => showAnswer(e)}>Vidi tačan odgovor.</button></p>
+
                             <input type="submit" value="Potvrdi" id="subm" onClick={handleSubmit}/>
                         </form>
 
