@@ -77,12 +77,12 @@ const Home = () => {
                             <label htmlFor="advanced">Napredni nivo</label>
                         </div>
                     </div>
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <input type="text" id="search" placeholder="🔍 Pretraži lekcije..." onChange={handleFilterChange} style={filterText==="" || filterLessons.length===0 ? {borderRadius: "20px"} : {borderRadius: "20px 20px 0 0"}} />
                         <div id="opadajuci-meni" style={filterText==="" || filterLessons.length===0 ? null : {borderRadius: "0 0 20px 20px"}}>
                             {filterLessons && filterLessons.map((lesson) => {
                                 return (
-                                    <Link className="kartica-opadajuceg-menija" to={`/course/${lesson.course_name}/lesson/${lesson.idlesson}`}>{lesson.name}</Link>
+                                    <Link key={lesson.idlesson} className="kartica-opadajuceg-menija" to={`/course/${lesson.course_name}/lesson/${lesson.idlesson}`}>{lesson.name}</Link>
                                 )
                             })}
                         </div>
